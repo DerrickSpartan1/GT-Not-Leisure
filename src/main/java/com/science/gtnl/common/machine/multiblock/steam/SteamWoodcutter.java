@@ -9,6 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import org.jetbrains.annotations.NotNull;
+
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
@@ -18,14 +20,19 @@ import com.science.gtnl.api.casing.GTNLCasings;
 import com.science.gtnl.common.machine.multiMachineBase.SteamMultiMachineBase;
 import com.science.gtnl.common.material.GTNLRecipeMaps;
 import com.science.gtnl.utils.StructureUtils;
+import com.science.gtnl.utils.recipes.GTNLOverclockCalculator;
+import com.science.gtnl.utils.recipes.GTNLProcessingLogic;
 
 import gregtech.api.enums.HatchElement;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
+import gregtech.api.logic.ProcessingLogic;
 import gregtech.api.recipe.RecipeMap;
+import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.structure.error.StructureError;
+import gregtech.api.util.GTRecipe;
 import gregtech.api.util.GTStructureUtility;
 import gregtech.api.util.MultiblockTooltipBuilder;
 import gregtech.common.misc.GTStructureChannels;
@@ -98,6 +105,38 @@ public class SteamWoodcutter extends SteamMultiMachineBase<SteamWoodcutter> impl
     @Override
     public RecipeMap<?> getRecipeMap() {
         return GTNLRecipeMaps.WoodcutterRecipes;
+    }
+
+    @Override
+    public ProcessingLogic createProcessingLogic() {
+        return new GTNLProcessingLogic() {
+
+            @Override
+            public @NotNull GTNLOverclockCalculator createOverclockCalculator(@NotNull GTRecipe recipe) {
+                return super.createOverclockCalculator(recipe).setExtraDurationModifier(configSpeedBoost)
+                    .setEUtDiscount(getEUtDiscount())
+                    .setDurationModifier(getDurationModifier())
+                    .setPerfectOC(getPerfectOC())
+                    .setMaxTierSkips(getMaxTierSkip())
+                    .setMaxOverclocks(getMaxOverclocks());
+            }
+
+            @NotNull
+            @Override
+            public CheckRecipeResult validateRecipe(@NotNull GTRecipe recipe) {
+                if (SteamCarpenter.needsSawBlade(recipe) && SteamCarpenter.findSawBlade(SteamWoodcutter.this) == null)
+                    return SteamCarpenter.NO_SAW_BLADE;
+                return super.validateRecipe(recipe);
+            }
+
+            @Override
+            public CheckRecipeResult onRecipeStart(@NotNull GTRecipe recipe) {
+                if (SteamCarpenter.needsSawBlade(recipe))
+                    SteamCarpenter.wearSawBlade(SteamWoodcutter.this, Math.max(1, calculatedParallels));
+                return super.onRecipeStart(recipe);
+            }
+
+        }.setMaxParallelSupplier(this::getTrueParallel);
     }
 
     @Override

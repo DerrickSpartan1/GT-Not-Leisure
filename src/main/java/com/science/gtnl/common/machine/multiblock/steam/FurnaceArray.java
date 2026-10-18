@@ -60,6 +60,11 @@ public class FurnaceArray extends SteamMultiMachineBase<FurnaceArray> implements
     private static final int DEPTH_OFF_SET = 0;
     public static int CASING_INDEX = GTNLCasings.CompressedFurnaceCasing.getTextureId();
 
+    public static final int MAX_PARALLEL = 64;
+    // 64 items per 90 seconds keeps a full array just below a bronze Steam Hearth (8 items per 10.24 seconds).
+    public static final int BATCH_DURATION_TICKS = 90 * 20;
+    public static final int COAL_PER_FURNACE = 32;
+
     public long furnaceCount = 1;
     public long coalCount = 0;
 
@@ -132,23 +137,36 @@ public class FurnaceArray extends SteamMultiMachineBase<FurnaceArray> implements
         time = 0;
         List<ItemStack> tInput = getAllStoredInputs();
 
+        // Only absorb furnaces and coal up to the parallel cap; anything beyond it stays in the input bus.
+        boolean absorbed = false;
         for (ItemStack input : tInput) {
             if (GTUtility.areStacksEqual(input, FURNACE_STACK)) {
-                furnaceCount += input.stackSize;
-                depleteInput(input);
+                int take = (int) Math.min(input.stackSize, Math.max(0, MAX_PARALLEL - furnaceCount));
+                if (take > 0) {
+                    furnaceCount += take;
+                    input.stackSize -= take;
+                    absorbed = true;
+                }
                 continue;
             }
             if (GTUtility.areStacksEqual(input, COAL_STACK)) {
-                coalCount += input.stackSize;
-                depleteInput(input);
+                int take = (int) Math.min(input.stackSize, Math.max(0, MAX_PARALLEL * COAL_PER_FURNACE - coalCount));
+                if (take > 0) {
+                    coalCount += take;
+                    input.stackSize -= take;
+                    absorbed = true;
+                }
             }
+        }
+        if (absorbed) {
+            updateSlots();
         }
 
         if (tInput.isEmpty()) {
             return CheckRecipeResultRegistry.NO_RECIPE;
         }
 
-        long maxParallel = Math.min(furnaceCount, coalCount / 32);
+        long maxParallel = Math.min(MAX_PARALLEL, Math.min(furnaceCount, coalCount / COAL_PER_FURNACE));
         if (maxParallel <= 0) {
             return CheckRecipeResultRegistry.NO_RECIPE;
         }
@@ -247,7 +265,7 @@ public class FurnaceArray extends SteamMultiMachineBase<FurnaceArray> implements
         this.mOutputItems = smeltedOutputs.toArray(new ItemStack[0]);
         this.mEfficiency = 10000 - (getIdealStatus() - getRepairStatus()) * 1000;
         this.mEfficiencyIncrease = 10000;
-        this.mMaxProgresstime = 100;
+        this.mMaxProgresstime = BATCH_DURATION_TICKS;
         this.lEUt = 0;
         this.updateSlots();
 

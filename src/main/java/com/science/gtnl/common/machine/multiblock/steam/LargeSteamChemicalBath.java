@@ -167,11 +167,11 @@ public class LargeSteamChemicalBath extends SteamMultiMachineBase<LargeSteamChem
     @Override
     public int getMaxParallelRecipes() {
         if (tierMachine == 1) {
-            return 16;
+            return 8;
         } else if (tierMachine == 2) {
-            return 32;
+            return 16;
         }
-        return 16;
+        return 8;
     }
 
     @Override
@@ -181,12 +181,12 @@ public class LargeSteamChemicalBath extends SteamMultiMachineBase<LargeSteamChem
 
     @Override
     public double getDurationModifier() {
-        return super.getDurationModifier() / 1.25 / tierMachine;
+        return super.getDurationModifier() / 0.75 / tierMachine;
     }
 
     @Override
     public int getTierRecipes() {
-        return 6;
+        return 2;
     }
 
     @Override

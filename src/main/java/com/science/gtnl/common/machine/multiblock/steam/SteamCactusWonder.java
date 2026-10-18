@@ -73,9 +73,12 @@ public class SteamCactusWonder extends SteamMultiMachineBase<SteamCactusWonder> 
         GregtechItemList.BlockCactusCoke.get(1), GregtechItemList.CompressedCactusCoke.get(1),
         GregtechItemList.DoubleCompressedCactusCoke.get(1), GregtechItemList.TripleCompressedCactusCoke.get(1),
         GregtechItemList.QuadrupleCompressedCactusCoke.get(1), GregtechItemList.QuintupleCompressedCactusCoke.get(1) };
-    public static final long[] TOTAL_VALUE = { 8_000L, 90_000L, 1_012_500L, 11_390_625L, 128_144_531L, 1_441_625_977L,
-        16_218_292_236L, 16_000L, 180_000L, 2_025_000L, 22_781_250L, 256_289_063L, 2_883_251_953L, 32_436_584_473L };
-    public static final int[] STEAM_TYPE = { 1, 1, 1, 2, 2, 3, 3, 1, 1, 1, 2, 2, 3, 3 };
+    public static final long[] TOTAL_VALUE = { 2_667L, 30_000L, 337_500L, 3_796_875L, 42_714_844L, 480_541_992L,
+        5_406_097_412L, 5_333L, 60_000L, 675_000L, 7_593_750L, 85_429_688L, 961_083_984L, 10_812_194_824L };
+    public static final int[] STEAM_TYPE = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+
+    // Superheated and supercritical steam come from the HV-gated Steam Fusion Reactor in this fork.
+    public static final int MAX_STEAM_PER_TICK = 1600;
 
     public int currentSteam;
     public ItemStack currentOffer;
@@ -188,8 +191,8 @@ public class SteamCactusWonder extends SteamMultiMachineBase<SteamCactusWonder> 
     public void outputSteam() {
         if (fueledAmount > 0) {
             if (currentSteam == 1) {
-                addOutput(Materials.Steam.getGas((int) Math.min(32000000, fueledAmount)));
-                fueledAmount -= (int) Math.min(32000000, fueledAmount);
+                addOutput(Materials.Steam.getGas((int) Math.min(MAX_STEAM_PER_TICK, fueledAmount)));
+                fueledAmount -= (int) Math.min(MAX_STEAM_PER_TICK, fueledAmount);
             } else if (currentSteam == 2) {
                 addOutput(GTModHandler.getSuperHeatedSteam((int) Math.min(64000000, fueledAmount)));
                 fueledAmount -= (int) Math.min(64000000, fueledAmount);

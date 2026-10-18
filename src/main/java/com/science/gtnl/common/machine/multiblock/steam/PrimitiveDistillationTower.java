@@ -126,12 +126,12 @@ public class PrimitiveDistillationTower extends SteamMultiMachineBase<PrimitiveD
 
     @Override
     public int getTierRecipes() {
-        return 3;
+        return 2;
     }
 
     @Override
     public int getMaxParallelRecipes() {
-        return 8;
+        return 2;
     }
 
     @Override

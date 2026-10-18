@@ -7,7 +7,6 @@ import com.science.gtnl.utils.recipes.metadata.SteamAmountMetadata;
 
 import gregtech.api.enums.Materials;
 import gregtech.api.recipe.RecipeMap;
-import gregtech.api.util.GTModHandler;
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList;
 
 public class CactusWonderFakeRecipes implements IRecipePool {
@@ -20,8 +19,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.CactusCharcoal.get(1))
-            .fluidOutputs(Materials.Steam.getGas(64000))
-            .metadata(OFFER_VALUE, 8000L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 2667L)
             .duration(20)
             .eut(0)
             .fake()
@@ -29,8 +28,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.BlockCactusCharcoal.get(1))
-            .fluidOutputs(Materials.Steam.getGas(64000))
-            .metadata(OFFER_VALUE, 90000L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 30000L)
             .duration(20)
             .eut(0)
             .fake()
@@ -38,8 +37,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.CompressedCactusCharcoal.get(1))
-            .fluidOutputs(Materials.Steam.getGas(64000))
-            .metadata(OFFER_VALUE, 1012500L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 337500L)
             .duration(20)
             .eut(0)
             .fake()
@@ -47,8 +46,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.DoubleCompressedCactusCharcoal.get(1))
-            .fluidOutputs(GTModHandler.getSuperHeatedSteam(128000))
-            .metadata(OFFER_VALUE, 11390625L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 3796875L)
             .duration(20)
             .eut(0)
             .fake()
@@ -56,8 +55,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.TripleCompressedCactusCharcoal.get(1))
-            .fluidOutputs(GTModHandler.getSuperHeatedSteam(128000))
-            .metadata(OFFER_VALUE, 128144531L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 42714844L)
             .duration(20)
             .eut(0)
             .fake()
@@ -65,8 +64,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.QuadrupleCompressedCactusCharcoal.get(1))
-            .fluidOutputs(Materials.DenseSupercriticalSteam.getGas(512000))
-            .metadata(OFFER_VALUE, 1441625977L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 480541992L)
             .duration(20)
             .eut(0)
             .fake()
@@ -74,8 +73,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.QuintupleCompressedCactusCharcoal.get(1))
-            .fluidOutputs(Materials.DenseSupercriticalSteam.getGas(512000))
-            .metadata(OFFER_VALUE, 16218292236L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 5406097412L)
             .duration(20)
             .eut(0)
             .fake()
@@ -83,8 +82,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.CactusCoke.get(1))
-            .fluidOutputs(Materials.Steam.getGas(64000))
-            .metadata(OFFER_VALUE, 16000L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 5333L)
             .duration(20)
             .eut(0)
             .fake()
@@ -92,8 +91,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.BlockCactusCoke.get(1))
-            .fluidOutputs(Materials.Steam.getGas(64000))
-            .metadata(OFFER_VALUE, 180000L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 60000L)
             .duration(20)
             .eut(0)
             .fake()
@@ -101,8 +100,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.CompressedCactusCoke.get(1))
-            .fluidOutputs(Materials.Steam.getGas(64000))
-            .metadata(OFFER_VALUE, 2025000L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 675000L)
             .duration(20)
             .eut(0)
             .fake()
@@ -110,8 +109,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.DoubleCompressedCactusCoke.get(1))
-            .fluidOutputs(GTModHandler.getSuperHeatedSteam(128000))
-            .metadata(OFFER_VALUE, 22781250L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 7593750L)
             .duration(20)
             .eut(0)
             .fake()
@@ -119,8 +118,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.TripleCompressedCactusCoke.get(1))
-            .fluidOutputs(GTModHandler.getSuperHeatedSteam(128000))
-            .metadata(OFFER_VALUE, 256289063L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 85429688L)
             .duration(20)
             .eut(0)
             .fake()
@@ -128,8 +127,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.QuadrupleCompressedCactusCoke.get(1))
-            .fluidOutputs(Materials.DenseSupercriticalSteam.getGas(512000))
-            .metadata(OFFER_VALUE, 2883251953L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 961083984L)
             .duration(20)
             .eut(0)
             .fake()
@@ -137,8 +136,8 @@ public class CactusWonderFakeRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(GregtechItemList.QuintupleCompressedCactusCoke.get(1))
-            .fluidOutputs(Materials.DenseSupercriticalSteam.getGas(512000))
-            .metadata(OFFER_VALUE, 32436584473L)
+            .fluidOutputs(Materials.Steam.getGas(32000))
+            .metadata(OFFER_VALUE, 10812194824L)
             .duration(20)
             .eut(0)
             .fake()

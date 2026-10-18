@@ -1,8 +1,7 @@
 package com.science.gtnl.common.machine.multiblock;
 
-import static com.science.gtnl.ScienceNotLeisure.RESOURCE_ROOT_ID;
-
 import java.util.List;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -10,19 +9,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import org.jetbrains.annotations.NotNull;
-
 import com.gtnewhorizon.structurelib.alignment.constructable.ISurvivalConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.ISurvivalBuildEnvironment;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureUtility;
 import com.science.gtnl.common.machine.multiMachineBase.SteamMultiMachineBase;
-import com.science.gtnl.utils.StructureUtils;
 
 import gregtech.api.casing.Casings;
 import gregtech.api.enums.HatchElement;
-import gregtech.api.enums.Materials;
 import gregtech.api.enums.Mods;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
@@ -30,22 +25,31 @@ import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.recipe.RecipeMap;
 import gregtech.api.recipe.RecipeMaps;
-import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.structure.error.StructureError;
 import gregtech.api.util.GTStructureUtility;
 import gregtech.api.util.MultiblockTooltipBuilder;
+import gregtech.common.pollution.Pollution;
+import gregtech.common.pollution.PollutionConfig;
 
 @IMetaTileEntity.SkipGenerateDescription
 @IMetaTileEntity.SkipGenerateName
 public class BrickedBlastFurnace extends SteamMultiMachineBase<BrickedBlastFurnace> implements ISurvivalConstructable {
 
     private static final String STRUCTURE_PIECE_MAIN = "main";
-    private static final String BBF_STRUCTURE_FILE_PATH = RESOURCE_ROOT_ID + ":" + "multiblock/bricked_blast_furnace";
-    private static final String[][] shape = StructureUtils.readStructureFromFile(BBF_STRUCTURE_FILE_PATH);
-    private static final int HORIZONTAL_OFF_SET = 7;
-    private static final int VERTICAL_OFF_SET = 12;
+    // Layers from top to bottom, rows from front to back.
+    private static final String[][] shape = new String[][] { { "     ", " BBB ", " B-B ", " BBB ", "     " },
+        { "     ", " BBB ", " B-B ", " BBB ", "     " }, { "     ", " BBB ", " B-B ", " BBB ", "     " },
+        { "EEEEE", "EBBBE", "EB-BE", "EBBBE", "EEEEE" }, { "EBBBE", "B---B", "B---B", "B---B", "EBBBE" },
+        { "EBBBE", "B---B", "B---B", "B---B", "EBBBE" }, { "EB~BE", "BBBBB", "BBBBB", "BBBBB", "EBBBE" },
+        { "EDDDE", "DAAAD", "DAAAD", "DAAAD", "EDDDE" } };
+    private static final int HORIZONTAL_OFF_SET = 2;
+    private static final int VERTICAL_OFF_SET = 6;
+    private static final int CHIMNEY_DEPTH = 2;
     private static final int DEPTH_OFF_SET = 0;
+    private static final int MIN_BRONZE_PLATED_BRICKS = 8;
+    public static final int MAX_PARALLEL = 4;
+    public static final double SPEED_BONUS = 2.0;
 
     public BrickedBlastFurnace(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
@@ -70,10 +74,11 @@ public class BrickedBlastFurnace extends SteamMultiMachineBase<BrickedBlastFurna
         return StructureDefinition.<BrickedBlastFurnace>builder()
             .addShape(STRUCTURE_PIECE_MAIN, StructureUtility.transpose(shape))
             .addElement('A', Casings.BronzeFireboxCasing.asElement())
+            .addElement('B', Casings.Firebricks.asElement())
             .addElement(
-                'B',
+                'D',
                 GTStructureUtility.buildHatchAdder(BrickedBlastFurnace.class)
-                    .casingIndex(getCasingTextureID())
+                    .casingIndex(Casings.BronzePlatedBricks.getTextureId())
                     .hint(1)
                     .atLeast(
                         SteamHatchElement.InputBus_Steam,
@@ -82,9 +87,7 @@ public class BrickedBlastFurnace extends SteamMultiMachineBase<BrickedBlastFurna
                         HatchElement.OutputBus,
                         HatchElement.Maintenance)
                     .buildAndChain(
-                        StructureUtility.onElementPass(x -> ++x.mCountCasing, Casings.Firebricks.asElement())))
-            .addElement('C', GTStructureUtility.ofFrame(Materials.Bronze))
-            .addElement('D', Casings.BronzePlatedBricks.asElement())
+                        StructureUtility.onElementPass(x -> ++x.mCountCasing, Casings.BronzePlatedBricks.asElement())))
             .addElement(
                 'E',
                 StructureUtility.ofChain(
@@ -122,12 +125,42 @@ public class BrickedBlastFurnace extends SteamMultiMachineBase<BrickedBlastFurna
     @Override
     public void checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack, List<StructureError> errors) {
         if (!checkPiece(STRUCTURE_PIECE_MAIN, HORIZONTAL_OFF_SET, VERTICAL_OFF_SET, DEPTH_OFF_SET, errors)) return;
-        checkCasingMin(errors, mCountCasing, 330);
+        checkCasingMin(errors, mCountCasing, MIN_BRONZE_PLATED_BRICKS);
     }
 
     @Override
     public int getMaxParallelRecipes() {
-        return 16777216;
+        return MAX_PARALLEL;
+    }
+
+    @Override
+    public double getDurationModifier() {
+        return super.getDurationModifier() / SPEED_BONUS;
+    }
+
+    @Override
+    public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
+        super.onPostTick(aBaseMetaTileEntity, aTick);
+        // Half the pollution of the four Bricked Blast Furnaces it replaces.
+        if (aBaseMetaTileEntity.isServerSide() && aBaseMetaTileEntity.isActive() && aTick % 20 == 0) {
+            Pollution.addPollution(
+                aBaseMetaTileEntity,
+                PollutionConfig.pollutionPrimitveBlastFurnacePerSecond * MAX_PARALLEL / 2);
+        }
+        // Smoke rises through the chimney like on a Bricked Blast Furnace.
+        if (aBaseMetaTileEntity.isClientSide() && aBaseMetaTileEntity.isActive()) {
+            ForgeDirection back = aBaseMetaTileEntity.getBackFacing();
+            Random random = aBaseMetaTileEntity.getWorld().rand;
+            aBaseMetaTileEntity.getWorld()
+                .spawnParticle(
+                    "largesmoke",
+                    aBaseMetaTileEntity.getXCoord() + back.offsetX * CHIMNEY_DEPTH + random.nextFloat(),
+                    aBaseMetaTileEntity.getYCoord() + VERTICAL_OFF_SET + random.nextFloat(),
+                    aBaseMetaTileEntity.getZCoord() + back.offsetZ * CHIMNEY_DEPTH + random.nextFloat(),
+                    0.0,
+                    0.3,
+                    0.0);
+        }
     }
 
     @Override
@@ -143,15 +176,6 @@ public class BrickedBlastFurnace extends SteamMultiMachineBase<BrickedBlastFurna
     @Override
     public int getTierRecipes() {
         return 14;
-    }
-
-    @NotNull
-    @Override
-    public CheckRecipeResult checkProcessing() {
-        CheckRecipeResult result = super.checkProcessing();
-        if (!result.wasSuccessful()) return result;
-        mMaxProgresstime = 128;
-        return result;
     }
 
     @Override
@@ -191,7 +215,7 @@ public class BrickedBlastFurnace extends SteamMultiMachineBase<BrickedBlastFurna
             .addInfo(StatCollector.translateToLocal("gtnl.machine.bricked_blast_furnace.tooltip.2"))
             .addInfo(StatCollector.translateToLocal("gtnl.machine.bricked_blast_furnace.tooltip.3"))
             .addInfo(StatCollector.translateToLocal("gtnl.machine.bricked_blast_furnace.tooltip.4"))
-            .beginStructureBlock(15, 14, 15, true)
+            .beginStructureBlock(5, 8, 5, true)
             .addStructureInfo(StatCollector.translateToLocal("gtnl.machine.bricked_blast_furnace.structure.0"))
             .addStructureInfo(StatCollector.translateToLocal("gtnl.machine.bricked_blast_furnace.structure.1"))
             .addStructureInfo(StatCollector.translateToLocal("gtnl.machine.bricked_blast_furnace.structure.2"))

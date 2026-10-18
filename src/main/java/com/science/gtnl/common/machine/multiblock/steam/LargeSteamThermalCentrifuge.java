@@ -174,11 +174,11 @@ public class LargeSteamThermalCentrifuge extends SteamMultiMachineBase<LargeStea
     @Override
     public int getMaxParallelRecipes() {
         if (tierMachine == 1) {
-            return 32;
+            return 8;
         } else if (tierMachine == 2) {
-            return 64;
+            return 16;
         }
-        return 32;
+        return 8;
     }
 
     @Override
@@ -188,12 +188,12 @@ public class LargeSteamThermalCentrifuge extends SteamMultiMachineBase<LargeStea
 
     @Override
     public double getDurationModifier() {
-        return super.getDurationModifier() / 4.0 / tierMachine;
+        return super.getDurationModifier() / 0.75 / tierMachine;
     }
 
     @Override
     public int getTierRecipes() {
-        return 3;
+        return 2;
     }
 
     @Override

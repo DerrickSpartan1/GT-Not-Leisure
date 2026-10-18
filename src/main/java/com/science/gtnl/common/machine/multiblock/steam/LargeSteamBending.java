@@ -181,7 +181,7 @@ public class LargeSteamBending extends SteamMultiMachineBase<LargeSteamBending> 
 
     @Override
     public double getDurationModifier() {
-        return super.getDurationModifier() / 1.05 / tierMachine;
+        return super.getDurationModifier() / 0.75 / tierMachine;
     }
 
     @Override

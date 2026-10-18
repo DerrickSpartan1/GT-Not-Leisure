@@ -155,6 +155,7 @@ public enum Mixins implements IMixins {
             "gregtech.MixinMTEPlasmaForge",
             "gregtech.MixinMTEMultiBlockBaseInterfaceName",
             "gregtech.MixinMTEMultiBlockBaseRecipeProcessing",
+            "gregtech.MixinMTESteamAlloySmelter",
             "gregtech.MixinMTETreeFarm",
             "gregtech.MixinProcessingLogic",
             "gregtech.MixinRecipeGenFluids",

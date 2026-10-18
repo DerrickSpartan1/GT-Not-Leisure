@@ -18,6 +18,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import com.gtnewhorizon.gtnhlib.eventbus.EventBusSubscriber;
 import com.gtnewhorizon.gtnhlib.util.map.ItemStackMap;
 import com.science.gtnl.common.item.items.Stick;
+import com.science.gtnl.common.machine.multiblock.steam.SteamCarpenter;
 import com.science.gtnl.config.MainConfig;
 import com.science.gtnl.utils.text.effect.TextEffectStyle;
 import com.science.gtnl.utils.text.effect.TextEffects;
@@ -242,6 +243,16 @@ public class AnimatedTooltipHandler {
         if (stack.getItem() instanceof Stick stick && !stick.isShiftDown() && MainConfig.item.stick.enableStickItem) {
             stack = Stick.getDisguisedStack(stack);
             if (stack == null) return;
+        }
+
+        if (stack.hasTagCompound() && stack.getTagCompound()
+            .hasKey(SteamCarpenter.SAW_BLADE_WEAR_TAG) && SteamCarpenter.isSawBlade(stack)) {
+            int maxWear = SteamCarpenter.getSawBladeMaxWear(stack);
+            event.toolTip.add(
+                StatCollector.translateToLocalFormatted(
+                    "gtnl.tooltip.saw_blade_wear",
+                    maxWear - SteamCarpenter.getSawBladeWear(stack),
+                    maxWear));
         }
 
         List<Supplier<String>> baseTooltips = TOOLTIP_MAP.get(stack);

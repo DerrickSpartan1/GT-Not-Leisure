@@ -23,12 +23,12 @@ public class SteamExtractinatorRecipes implements IRecipePool {
         RecipeBuilder.builder()
             .fluidInputs(GTNLMaterials.GravelSluice.getFluidOrGas(4000))
             .itemOutputs(
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Iron, 8),
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Copper, 8),
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Tin, 8),
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Clay, 8),
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Salt, 8),
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Coal, 8))
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Iron, 1),
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Copper, 1),
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Tin, 1),
+                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Clay, 1),
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Salt, 1),
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Coal, 1))
             .duration(5 * SECONDS)
             .eut(300)
             .addTo(SER);
@@ -36,11 +36,11 @@ public class SteamExtractinatorRecipes implements IRecipePool {
         RecipeBuilder.builder()
             .fluidInputs(GTNLMaterials.SandSluice.getFluidOrGas(4000))
             .itemOutputs(
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Gold, 8),
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Redstone, 8),
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Zinc, 8),
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Ruby, 8),
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Sulfur, 8))
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Gold, 1),
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Redstone, 1),
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Zinc, 1),
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Ruby, 1),
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Sulfur, 1))
             .duration(5 * SECONDS)
             .eut(300)
             .addTo(SER);
@@ -48,9 +48,9 @@ public class SteamExtractinatorRecipes implements IRecipePool {
         RecipeBuilder.builder()
             .fluidInputs(GTNLMaterials.ObsidianSluice.getFluidOrGas(4000))
             .itemOutputs(
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Silver, 8),
-                GTOreDictUnificator.get(OrePrefixes.gem, Materials.Diamond, 8),
-                GTOreDictUnificator.get(OrePrefixes.gem, Materials.Emerald, 8),
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Silver, 1),
+                GTOreDictUnificator.get(OrePrefixes.gem, Materials.Diamond, 1),
+                GTOreDictUnificator.get(OrePrefixes.gem, Materials.Emerald, 1),
                 GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Gypsum, 1),
                 GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Calcite, 1))
             .duration(5 * SECONDS)
@@ -72,10 +72,10 @@ public class SteamExtractinatorRecipes implements IRecipePool {
         RecipeBuilder.builder()
             .fluidInputs(GTNLMaterials.TwilightSluice.getFluidOrGas(4000))
             .itemOutputs(
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Galena, 8),
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Lead, 8),
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Cryolite, 8),
-                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Garnierite, 8))
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Galena, 1),
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Lead, 1),
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Cryolite, 1),
+                GTOreDictUnificator.get(OrePrefixes.crushed, Materials.Garnierite, 1))
             .duration(5 * SECONDS)
             .eut(300)
             .addTo(SER);

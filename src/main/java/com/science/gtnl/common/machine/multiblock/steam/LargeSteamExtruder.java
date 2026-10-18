@@ -217,7 +217,7 @@ public class LargeSteamExtruder extends SteamMultiMachineBase<LargeSteamExtruder
 
     @Override
     public double getDurationModifier() {
-        return super.getDurationModifier() / 1.11 / tierMachine;
+        return super.getDurationModifier() / 0.75 / tierMachine;
     }
 
     @Override

@@ -155,7 +155,7 @@ public class LargeSteamCircuitAssembler extends SteamMultiMachineBase<LargeSteam
 
     @Override
     public int getMaxParallelRecipes() {
-        return 16;
+        return tierMachine == 2 ? 16 : 8;
     }
 
     @Override
@@ -170,7 +170,7 @@ public class LargeSteamCircuitAssembler extends SteamMultiMachineBase<LargeSteam
 
     @Override
     public int getTierRecipes() {
-        return tierMachine == 2 ? 3 : 1;
+        return tierMachine == 2 ? 2 : 1;
     }
 
     @Override

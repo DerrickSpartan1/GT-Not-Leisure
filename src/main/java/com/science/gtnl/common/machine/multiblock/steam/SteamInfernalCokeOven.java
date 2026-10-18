@@ -51,6 +51,7 @@ public class SteamInfernalCokeOven extends SteamMultiMachineBase<SteamInfernalCo
     private static final int VERTICAL_OFF_SET = 3;
     private static final int DEPTH_OFF_SET = 0;
 
+    public static final double MAX_SPEEDUP = 2;
     public double speedup = 1;
     public int runningTickCounter = 0;
 
@@ -75,7 +76,7 @@ public class SteamInfernalCokeOven extends SteamMultiMachineBase<SteamInfernalCo
     @Override
     public boolean onRunningTick(ItemStack aStack) {
         runningTickCounter++;
-        if (runningTickCounter % 100 == 0 && speedup < 10) {
+        if (runningTickCounter % 100 == 0 && speedup < MAX_SPEEDUP) {
             runningTickCounter = 0;
             speedup += 0.05;
         }
@@ -154,7 +155,7 @@ public class SteamInfernalCokeOven extends SteamMultiMachineBase<SteamInfernalCo
     @Override
     public int getMaxParallelRecipes() {
         // Max call to prevent seeing -16 parallels in waila for unformed multi
-        return 16;
+        return 8;
     }
 
     @Override

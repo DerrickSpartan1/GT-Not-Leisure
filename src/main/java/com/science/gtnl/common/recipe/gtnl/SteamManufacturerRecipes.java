@@ -106,7 +106,18 @@ public class SteamManufacturerRecipes implements IRecipePool {
             .itemOutputs(GTNLItemList.HydraulicMotor.get(1))
             .duration(1 * SECONDS)
             .eut(16)
-            .addTo(SMFR)
+            .addTo(SMFR);
+
+        // The assembler route is the only way to make the first Hydraulic Motor, gating steam multiblocks behind LV.
+        RecipeBuilder.builder()
+            .itemInputs(
+                GTOreDictUnificator.get(OrePrefixes.stick, Materials.Iron, 2),
+                GTOreDictUnificator.get(OrePrefixes.gearGt, Materials.Bronze, 2),
+                GTNLMaterials.Breel.get(OrePrefixes.pipeMedium, 1),
+                GTNLItemList.IronTurbine.get(1))
+            .itemOutputs(GTNLItemList.HydraulicMotor.get(1))
+            .duration(5 * SECONDS)
+            .eut(TierEU.RECIPE_LV)
             .addTo(As);
 
         RecipeBuilder.builder()
@@ -266,7 +277,17 @@ public class SteamManufacturerRecipes implements IRecipePool {
             .itemOutputs(GTNLItemList.PrecisionSteamMechanism.get(2))
             .duration(3 * SECONDS)
             .eut(16)
-            .addTo(SMFR)
+            .addTo(SMFR);
+
+        // Same LV gate as the Hydraulic Motor above.
+        RecipeBuilder.builder()
+            .itemInputs(
+                GTNLMaterials.Breel.get(OrePrefixes.gearGt, 3),
+                GTOreDictUnificator.get(OrePrefixes.stick, Materials.Bronze, 5),
+                GTOreDictUnificator.get(OrePrefixes.stick, Materials.Steel, 1))
+            .itemOutputs(GTNLItemList.PrecisionSteamMechanism.get(2))
+            .duration(10 * SECONDS)
+            .eut(TierEU.RECIPE_LV)
             .addTo(As);
 
         if (Mods.StorageDrawers.isModLoaded()) {
@@ -283,7 +304,8 @@ public class SteamManufacturerRecipes implements IRecipePool {
                 .itemInputs(
                     ModsItemlist.StorageDrawersUpgradeTemplate.get(1),
                     GTOreDictUnificator.get("drawerBasic", 1),
-                    GTNLMaterials.Breel.get(OrePrefixes.gearGt, 2))
+                    GTNLMaterials.Breel.get(OrePrefixes.gearGt, 2),
+                    GTOreDictUnificator.get(OrePrefixes.circuit, Materials.LV, 2))
                 .itemOutputs(ModsItemlist.StorageDrawersController.get(1))
                 .duration(5 * SECONDS)
                 .eut(TierEU.RECIPE_LV)
@@ -724,11 +746,47 @@ public class SteamManufacturerRecipes implements IRecipePool {
 
         // Supercompressor
         RecipeBuilder.builder()
-            .itemInputs(GregtechItemList.Controller_SteamCompressorMulti.get(64), GTNLItemList.HydraulicPump.get(4))
+            .itemInputs(GregtechItemList.Controller_SteamCompressorMulti.get(16), GTNLItemList.HydraulicPump.get(1))
             .itemOutputs(GTNLItemList.MegaSteamCompressor.get(1))
             .duration(120 * SECONDS)
-            .eut(1600)
-            .addTo(SMFR)
+            .eut(TierEU.RECIPE_MV)
+            .addTo(As);
+
+        // Mega Solar Boiler, MV assembler only
+        RecipeBuilder.builder()
+            .itemInputs(
+                GTNLItemList.SolarBoilingCell.get(3),
+                GTNLItemList.HydraulicPump.get(2),
+                ItemList.Hull_HP.get(1),
+                ItemList.Casing_SolidSteel.get(1),
+                ItemList.Casing_BronzePlatedBricks.get(2))
+            .itemOutputs(GTNLItemList.MegaSolarBoiler.get(1))
+            .duration(60 * SECONDS)
+            .eut(TierEU.RECIPE_MV)
+            .addTo(As);
+
+        // Steam Fusion Reactor, HV assembler only
+        RecipeBuilder.builder()
+            .itemInputs(
+                GTNLItemList.MegaSolarBoiler.get(1),
+                GTNLMaterials.Stronze.get(OrePrefixes.pipeHuge, 4),
+                GTOreDictUnificator.get(OrePrefixes.gem, Materials.Emerald, 2),
+                GTOreDictUnificator.get(OrePrefixes.plate, Materials.Beryllium, 2))
+            .itemOutputs(GTNLItemList.SteamFusionReactor.get(1))
+            .duration(60 * SECONDS)
+            .eut(TierEU.RECIPE_HV)
+            .addTo(As);
+
+        // Steam Extractinator, MV assembler only
+        RecipeBuilder.builder()
+            .itemInputs(
+                GTNLItemList.VibrationSafeCasing.get(4),
+                ItemList.Casing_BronzePlatedBricks.get(2),
+                GTNLItemList.HydraulicPump.get(2),
+                GTNLMaterials.Stronze.get(OrePrefixes.pipeLarge, 1))
+            .itemOutputs(GTNLItemList.SteamExtractinator.get(1))
+            .duration(60 * SECONDS)
+            .eut(TierEU.RECIPE_MV)
             .addTo(As);
 
         // Progenitor
@@ -745,8 +803,7 @@ public class SteamManufacturerRecipes implements IRecipePool {
                 GTNLItemList.SteelReinforcedWood.get(32))
             .itemOutputs(GTNLItemList.SteamGateAssembler.get(1))
             .duration(120 * SECONDS)
-            .eut(1600)
-            .addTo(SMFR)
+            .eut(TierEU.RECIPE_MV)
             .addTo(As);
 
         // Compact Fusion
@@ -767,7 +824,7 @@ public class SteamManufacturerRecipes implements IRecipePool {
             .addTo(SMFR)
             .addTo(As);
 
-        // Pipeless
+        // Pipeless hatch and vent, MV assembler only like the other super steam parts
         RecipeBuilder.builder()
             .itemInputs(
                 GTNLItemList.BronzeReinforcedWood.get(4),
@@ -777,9 +834,8 @@ public class SteamManufacturerRecipes implements IRecipePool {
                 GTNLItemList.HydraulicRegulator.get(1),
                 GTUtility.getIntegratedCircuit(3))
             .itemOutputs(GTNLItemList.PipelessSteamHatch.get(1))
-            .duration(2 * SECONDS)
-            .eut(16)
-            .addTo(SMFR)
+            .duration(20 * SECONDS)
+            .eut(TierEU.RECIPE_MV)
             .addTo(As);
 
         RecipeBuilder.builder()
@@ -791,9 +847,8 @@ public class SteamManufacturerRecipes implements IRecipePool {
                 GTNLItemList.HydraulicRegulator.get(1),
                 GTUtility.getIntegratedCircuit(3))
             .itemOutputs(GTNLItemList.PipelessSteamVent.get(1))
-            .duration(2 * SECONDS)
-            .eut(16)
-            .addTo(SMFR)
+            .duration(20 * SECONDS)
+            .eut(TierEU.RECIPE_MV)
             .addTo(As);
 
         // Jetstream Hatch

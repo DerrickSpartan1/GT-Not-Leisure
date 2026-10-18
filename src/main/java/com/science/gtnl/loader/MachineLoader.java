@@ -1917,7 +1917,8 @@ public class MachineLoader {
         GTNLItemList.BigSteamInputHatch.set(
             new CustomFluidHatch(
                 SteamTypes.getSupportedFluids(),
-                4096000,
+                // Four times the base Steam Hatch (64,000 L).
+                256000,
                 GTNLMachineID.BIG_STEAM_INPUT_HATCH.ID,
                 "BigSteamInputHatch",
                 StatCollector.translateToLocal("gtnl.hatch.big_steam_input.name"),
@@ -4963,43 +4964,41 @@ public class MachineLoader {
             250000,
             10000,
             true);
-        MaterialUtils.registerFluidPipes(GTNLMachineID.STRONZE_PIPE.ID, GTNLMaterials.Stronze, 15000, 10000, true);
-        MaterialUtils.registerFluidPipes(GTNLMachineID.BREEL_PIPE.ID, GTNLMaterials.Breel, 10000, 10000, true);
+        MaterialUtils.registerFluidPipes(GTNLMachineID.STRONZE_PIPE.ID, GTNLMaterials.Stronze, 500, 10000, true);
+        MaterialUtils.registerFluidPipes(GTNLMachineID.BREEL_PIPE.ID, GTNLMaterials.Breel, 360, 10000, true);
     }
 
+    // Hydraulic covers match the base MV covers in this fork.
     public static void registerCovers() {
         CoverRegistry.registerCover(
             GTNLItemList.HydraulicPump.get(1L),
             TextureFactory
                 .of(Textures.BlockIcons.MACHINE_CASINGS[1][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)),
-            context -> new CoverPump(context, 1048576, TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)));
+            context -> new CoverPump(context, 128, TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)));
 
         CoverRegistry.registerCover(
             GTNLItemList.HydraulicConveyor.get(1L),
             TextureFactory
                 .of(Textures.BlockIcons.MACHINE_CASINGS[1][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_CONVEYOR)),
-            context -> new CoverConveyor(context, 1, 16, 64, TextureFactory.of(Textures.BlockIcons.OVERLAY_CONVEYOR)));
+            context -> new CoverConveyor(context, 100, 1, 64, TextureFactory.of(Textures.BlockIcons.OVERLAY_CONVEYOR)));
 
         CoverRegistry.registerCover(
             GTNLItemList.HydraulicRegulator.get(1L),
             TextureFactory
                 .of(Textures.BlockIcons.MACHINE_CASINGS[1][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)),
-            context -> new CoverSteamRegulator(context, 1048576, TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)));
+            context -> new CoverSteamRegulator(context, 2048, TextureFactory.of(Textures.BlockIcons.OVERLAY_PUMP)));
 
         CoverRegistry.registerCover(
             GTNLItemList.HydraulicSteamValve.get(1L),
             TextureFactory
                 .of(Textures.BlockIcons.MACHINE_CASINGS[1][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_VALVE)),
-            context -> new CoverSteamValve(context, 16777216, TextureFactory.of(Textures.BlockIcons.OVERLAY_VALVE)));
+            context -> new CoverSteamValve(context, 2048, TextureFactory.of(Textures.BlockIcons.OVERLAY_VALVE)));
 
         CoverRegistry.registerCover(
             GTNLItemList.HydraulicSteamRegulator.get(1L),
             TextureFactory
                 .of(Textures.BlockIcons.MACHINE_CASINGS[1][0], TextureFactory.of(Textures.BlockIcons.OVERLAY_VALVE)),
-            context -> new CoverFluidRegulator(
-                context,
-                16777216,
-                TextureFactory.of(Textures.BlockIcons.OVERLAY_VALVE)));
+            context -> new CoverFluidRegulator(context, 128, TextureFactory.of(Textures.BlockIcons.OVERLAY_VALVE)));
 
         CoverRegistry.registerCover(
             GTNLItemList.PipelessSteamCover.get(1L),

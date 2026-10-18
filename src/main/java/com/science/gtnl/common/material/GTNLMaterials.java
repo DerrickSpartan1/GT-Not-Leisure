@@ -1454,9 +1454,10 @@ public class GTNLMaterials implements Runnable {
             subscriptNumbers("(SnCu3)(Fe50C)2"),
             new Werkstoff.Stats().setMass(40)
                 .setProtons(96)
-                .setQualityOverride((byte) 5)
-                .setSpeedOverride(20)
-                .setDurOverride(36000),
+                // Tools are a slightly better Steel (Steel: 512 durability, level 3, speed 6).
+                .setQualityOverride((byte) 3)
+                .setSpeedOverride(6.5f)
+                .setDurOverride(576),
             Werkstoff.Types.MIXTURE,
             new Werkstoff.GenerationFeatures().onlyDust()
                 .addMolten()
@@ -1474,9 +1475,10 @@ public class GTNLMaterials implements Runnable {
             subscriptNumbers("(Fe50C)(SnCu3)2"),
             new Werkstoff.Stats().setMass(40)
                 .setProtons(102)
-                .setQualityOverride((byte) 4)
-                .setSpeedOverride(10)
-                .setDurOverride(24000),
+                // Tools sit between Cast Iron (384 durability, level 2) and Steel (512, level 3).
+                .setQualityOverride((byte) 3)
+                .setSpeedOverride(6.0f)
+                .setDurOverride(448),
             Werkstoff.Types.MIXTURE,
             new Werkstoff.GenerationFeatures().onlyDust()
                 .addMolten()

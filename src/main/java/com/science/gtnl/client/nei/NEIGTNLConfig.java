@@ -61,6 +61,16 @@ public class NEIGTNLConfig implements IConfigureNEI {
         API.addRecipeCatalyst(GTNLItemList.InfinityShimmerBucket.get(1), GTNLRecipeMaps.ShimmerRecipes.unlocalizedName);
         API.addRecipeCatalyst(GTNLItemList.ShimmerFluidBlock.get(1), GTNLRecipeMaps.ShimmerRecipes.unlocalizedName);
 
+        // Control circuits are uncraftable in this fork, so keep them out of the item list.
+        API.hideItem(GTNLItemList.VerySimpleCircuit.get(1));
+        API.hideItem(GTNLItemList.SimpleCircuit.get(1));
+        API.hideItem(GTNLItemList.BasicCircuit.get(1));
+        API.hideItem(GTNLItemList.AdvancedCircuit.get(1));
+        API.hideItem(GTNLItemList.EliteCircuit.get(1));
+
+        // Large Steam Alloy Smelter has no recipe in this fork; placed ones keep working.
+        API.hideItem(GTNLItemList.LargeSteamAlloySmelter.get(1));
+
         API.addRecipeCatalyst(GTNLItemList.ReactionFurnace.get(1), "smelting");
         API.addRecipeCatalyst(GTNLItemList.LargeSteamFurnace.get(1), "smelting");
         API.addRecipeCatalyst(GTNLItemList.PortableFurnace.get(1), "smelting");

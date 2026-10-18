@@ -23,6 +23,7 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.structure.error.StructureError;
+import gregtech.api.util.GTRecipe;
 import gregtech.api.util.shutdown.ShutDownReasonRegistry;
 import lombok.Getter;
 import lombok.Setter;
@@ -217,5 +218,16 @@ public abstract class SteamElevatorModuleBase extends SteamMultiMachineBase<Stea
 
     public void disconnect() {
         isConnected = false;
+    }
+
+    // Elevator modules keep the original 0-4 dial until their chapter is rebalanced.
+    @Override
+    public int clampRecipeOcCount(int value) {
+        return Math.max(0, Math.min(4, value));
+    }
+
+    @Override
+    public void updateActiveOcCount(GTRecipe recipe) {
+        activeOcCount = clampRecipeOcCount(recipeOcCount);
     }
 }

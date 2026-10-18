@@ -117,6 +117,8 @@ public abstract class SteamMultiMachineBase<T extends SteamMultiMachineBase<T>> 
     public static final int OC_WINDOW_ID = 12;
     public double configSpeedBoost = 1;
     public int recipeOcCount = 0;
+    // Overclocks the dial actually applies to the current recipe, see updateActiveOcCount.
+    public int activeOcCount = 0;
     public int tierAdvancedCasing = -1;
     public int tierBrickCasing = -1;
     public int tierPlatedCasing = -1;
@@ -461,12 +463,12 @@ public abstract class SteamMultiMachineBase<T extends SteamMultiMachineBase<T>> 
 
     @ApiStatus.OverrideOnly
     public double getEUtDiscount() {
-        return (1 << (2 * Math.min(4, recipeOcCount)));
+        return (1 << (2 * activeOcCount));
     }
 
     @ApiStatus.OverrideOnly
     public double getDurationModifier() {
-        return 1.0 / (1 << Math.min(4, recipeOcCount));
+        return 1.0 / (1 << activeOcCount);
     }
 
     @Override
@@ -1675,7 +1677,19 @@ public abstract class SteamMultiMachineBase<T extends SteamMultiMachineBase<T>> 
     }
 
     public int clampRecipeOcCount(int value) {
-        return Math.min(4, value);
+        return Math.max(0, Math.min(MAX_STEAM_OC, value));
+    }
+
+    public static final int MAX_STEAM_OC = 2;
+
+    /**
+     * Works like a GT machine overclocking: bronze counts as an LV machine and steel as MV, and the recipe gets one
+     * overclock (2x speed, 4x steam) per voltage tier between the recipe and the machine. The dial only sets the most
+     * the player wants to use.
+     */
+    public void updateActiveOcCount(GTRecipe recipe) {
+        int headroom = Math.max(0, Math.max(1, tierMachine) - GTUtility.getTier(recipe.mEUt));
+        activeOcCount = Math.min(clampRecipeOcCount(recipeOcCount), headroom);
     }
 
     public static <T extends SteamMultiMachineBase<T>> HatchElementBuilder<T> buildSteamBigInput(Class<T> typeToken) {

@@ -146,7 +146,7 @@ public class SteamLavaMaker extends SteamMultiMachineBase<SteamLavaMaker> implem
     @Override
     public int getMaxParallelRecipes() {
         // Max call to prevent seeing -16 parallels in waila for unformed multi
-        return 4;
+        return 1;
     }
 
     @Override

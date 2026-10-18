@@ -51,7 +51,7 @@ public class WirelessSteamEnergyHatch extends CustomFluidHatch {
     public WirelessSteamEnergyHatch(final int aID, final String aName, final String aNameRegional, int aTier) {
         super(
             SteamTypes.getSupportedFluids(),
-            aTier == 0 ? 8000000 : Integer.MAX_VALUE,
+            aTier == 0 ? 256000 : Integer.MAX_VALUE,
             aID,
             aName,
             aNameRegional,
@@ -61,7 +61,7 @@ public class WirelessSteamEnergyHatch extends CustomFluidHatch {
     public WirelessSteamEnergyHatch(final String aName, final ITexture[][][] aTextures, int aTier) {
         super(
             SteamTypes.getSupportedFluids(),
-            aTier == 0 ? 8000000 : Integer.MAX_VALUE,
+            aTier == 0 ? 256000 : Integer.MAX_VALUE,
             aName,
             aTier,
             new String[] { "" },

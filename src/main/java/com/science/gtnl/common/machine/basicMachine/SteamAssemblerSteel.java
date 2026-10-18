@@ -87,7 +87,8 @@ public class SteamAssemblerSteel extends MTEBasicMachineSteel {
         GTRecipe tRecipe = getRecipeMap().findRecipeQuery()
             .items(getAllInputs())
             .fluids(getFillableStack())
-            .voltage(TierEU.MV)
+            // LV recipes only, like the base high-pressure steam machines, so MV assembler gates stay at MV.
+            .voltage(TierEU.LV)
             .find();
         if ((tRecipe != null) && (canOutput(tRecipe.mOutputs))
             && (tRecipe.isRecipeInputEqual(true, new FluidStack[] { getFillableStack() }, getAllInputs()))) {

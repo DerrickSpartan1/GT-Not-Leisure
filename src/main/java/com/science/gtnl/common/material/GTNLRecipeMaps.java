@@ -413,6 +413,7 @@ public class GTNLRecipeMaps {
     public static final RecipeMap<RecipeMapBackend> SteamCarpenterRecipes = RecipeMapBuilder
         .of("gtnl.recipe.steam_carpenter")
         .maxIO(2, 2, 0, 0)
+        .useSpecialSlot()
         .progressBarSteam(GTUITextures.PROGRESSBAR_ARROW_STEAM)
         .frontend(SteamLogoFrontend::new)
         .neiHandlerInfo(builder -> builder.setDisplayStack(GTNLItemList.SteamCarpenter.get(1)))
@@ -427,6 +428,7 @@ public class GTNLRecipeMaps {
 
     public static final RecipeMap<RecipeMapBackend> WoodcutterRecipes = RecipeMapBuilder.of("gtnl.recipe.woodcutter")
         .maxIO(1, 4, 0, 0)
+        .useSpecialSlot()
         .progressBarSteam(GTUITextures.PROGRESSBAR_ARROW_STEAM)
         .frontend(SteamLogoFrontend::new)
         .neiHandlerInfo(builder -> builder.setDisplayStack(GTNLItemList.SteamWoodcutter.get(1)))

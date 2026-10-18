@@ -1,8 +1,8 @@
 {
   "preRequisites:9": {
     "0:10": {
-      "questIDHigh:4": -4919695760175972031,
-      "questIDLow:4": -6152640122931141239
+      "questIDHigh:4": -948212018428097211,
+      "questIDLow:4": -7393895238459152530
     }
   },
   "properties:10": {
@@ -32,7 +32,65 @@
   },
   "questIDHigh:4": 7683866823014632744,
   "questIDLow:4": -6397710076487797462,
-  "rewards:9": {},
+  "rewards:9": {
+    "0:10": {
+      "ignoreDisabled:1": 0,
+      "index:3": 0,
+      "rewardID:8": "bq_standard:item",
+      "rewards:9": {
+        "0:10": {
+          "Count:3": 2,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "IC2:itemPartCircuit"
+        },
+        "1:10": {
+          "Count:3": 1,
+          "Damage:2": 4,
+          "OreDict:8": "",
+          "id:8": "enhancedlootbags:lootbag"
+        }
+      }
+    },
+    "1:10": {
+      "ignoreDisabled:1": 0,
+      "index:3": 1,
+      "rewardID:8": "bq_standard:item",
+      "rewards:9": {
+        "0:10": {
+          "Count:3": 15,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "dreamcraft:CoinTechnician"
+        }
+      }
+    },
+    "2:10": {
+      "choices:9": {
+        "0:10": {
+          "Count:3": 1,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "IC2:itemPartCircuitAdv"
+        },
+        "1:10": {
+          "Count:3": 3,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "IC2:itemPartCircuit"
+        },
+        "2:10": {
+          "Count:3": 32,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "minecraft:redstone"
+        }
+      },
+      "ignoreDisabled:1": 0,
+      "index:3": 2,
+      "rewardID:8": "bq_standard:choice"
+    }
+  },
   "tasks:9": {
     "0:10": {
       "autoConsume:1": 0,
@@ -61,33 +119,21 @@
       "requiredItems:9": {
         "0:10": {
           "Count:3": 1,
-          "Damage:2": 21,
+          "Damage:2": 0,
           "OreDict:8": "",
-          "id:8": "sciencenotleisure:meta_item"
+          "id:8": "IC2:itemPartCircuit"
         },
         "1:10": {
           "Count:3": 1,
-          "Damage:2": 22,
+          "Damage:2": 32702,
           "OreDict:8": "",
-          "id:8": "sciencenotleisure:meta_item"
+          "id:8": "gregtech:gt.metaitem.01"
         },
         "2:10": {
           "Count:3": 1,
-          "Damage:2": 23,
+          "Damage:2": 0,
           "OreDict:8": "",
-          "id:8": "sciencenotleisure:meta_item"
-        },
-        "3:10": {
-          "Count:3": 1,
-          "Damage:2": 24,
-          "OreDict:8": "",
-          "id:8": "sciencenotleisure:meta_item"
-        },
-        "4:10": {
-          "Count:3": 1,
-          "Damage:2": 25,
-          "OreDict:8": "",
-          "id:8": "sciencenotleisure:meta_item"
+          "id:8": "IC2:itemPartCircuitAdv"
         }
       },
       "taskID:8": "bq_standard:optional_retrieval"

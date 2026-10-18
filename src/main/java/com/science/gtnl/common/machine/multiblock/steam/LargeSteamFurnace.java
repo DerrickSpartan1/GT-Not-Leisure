@@ -51,6 +51,10 @@ import gregtech.common.misc.GTStructureChannels;
 @IMetaTileEntity.SkipGenerateName
 public class LargeSteamFurnace extends SteamMultiMachineBase<LargeSteamFurnace> implements ISurvivalConstructable {
 
+    public static final int MAX_PARALLEL = 32;
+    public static final double SINGLE_BLOCK_BRONZE_DURATION = 256.0;
+    public static final double SPEED_BONUS = 1.5;
+
     private static final int HORIZONTAL_OFF_SET = 3;
     private static final int VERTICAL_OFF_SET = 5;
     private static final int DEPTH_OFF_SET = 0;
@@ -215,8 +219,8 @@ public class LargeSteamFurnace extends SteamMultiMachineBase<LargeSteamFurnace> 
             @Override
             public @NotNull GTNLOverclockCalculator createOverclockCalculator(@NotNull GTRecipe recipe) {
                 return super.createOverclockCalculator(recipe).setExtraDurationModifier(configSpeedBoost)
-                    .setEUtDiscount(0.5D * tierMachine * (1 << (2 * Math.min(4, recipeOcCount))))
-                    .setDurationModifier(1.0D / 10.0D / tierMachine / (1 << Math.min(4, recipeOcCount)))
+                    .setEUtDiscount(0.5D * tierMachine * (1 << (2 * activeOcCount)))
+                    .setDurationModifier(1.0D / 10.0D / tierMachine / (1 << activeOcCount))
                     .setMaxTierSkips(0)
                     .setMaxOverclocks(0);
             }
@@ -226,6 +230,8 @@ public class LargeSteamFurnace extends SteamMultiMachineBase<LargeSteamFurnace> 
     @Override
     @NotNull
     public CheckRecipeResult checkProcessing() {
+        // Smelting is a ULV recipe, so the machine tier is the overclock headroom.
+        activeOcCount = Math.min(clampRecipeOcCount(recipeOcCount), Math.max(1, tierMachine));
         List<ItemStack> tInput = getAllStoredInputs();
         long availableEUt = GTUtility.roundUpVoltage(getMaxInputVoltage());
         if (availableEUt < 4) {
@@ -241,7 +247,7 @@ public class LargeSteamFurnace extends SteamMultiMachineBase<LargeSteamFurnace> 
 
         GTNLOverclockCalculator calculator = new GTNLOverclockCalculator().setEUt(availableEUt)
             .setRecipeEUt(4)
-            .setDuration(64)
+            .setDuration(getBatchDuration())
             .setParallel(originalMaxParallel)
             .setNoOverclock(true);
 
@@ -358,8 +364,9 @@ public class LargeSteamFurnace extends SteamMultiMachineBase<LargeSteamFurnace> 
 
         mEfficiency = 10000 - (getIdealStatus() - getRepairStatus()) * 1000;
         mEfficiencyIncrease = 10000;
-        mMaxProgresstime = (int) (calculator.getDuration() * batchMultiplierMax / (1 << recipeOcCount));
-        lEUt = GTValues.VP[GTUtility.getTier(calculator.getConsumption())] * (1L << (2 * recipeOcCount));
+        mMaxProgresstime = (int) (calculator.getDuration() * batchMultiplierMax / (1 << activeOcCount));
+        lEUt = GTValues.VP[GTUtility.getTier(calculator.getConsumption())] * (1L << (2 * activeOcCount))
+            * Math.max(1, tierMachine);
         if (lEUt > 0) {
             lEUt = -lEUt;
         }
@@ -368,19 +375,22 @@ public class LargeSteamFurnace extends SteamMultiMachineBase<LargeSteamFurnace> 
         return CheckRecipeResultRegistry.SUCCESSFUL;
     }
 
+    /**
+     * 50% faster than a single-block steam furnace of the same pressure (256 ticks bronze, 128 ticks steel), where the
+     * base game's Steam Hearth is 25% faster.
+     */
+    public int getBatchDuration() {
+        return (int) Math.round(SINGLE_BLOCK_BRONZE_DURATION / SPEED_BONUS / Math.max(1, tierMachine));
+    }
+
     @Override
     public int getMaxParallelRecipes() {
-        if (tierMachine == 1) {
-            return 128;
-        } else if (tierMachine == 2) {
-            return 256;
-        }
-        return 128;
+        return MAX_PARALLEL;
     }
 
     @Override
     public int getTierRecipes() {
-        return 3;
+        return 2;
     }
 
     @Override

@@ -172,11 +172,11 @@ public class LargeSteamWiremill extends SteamMultiMachineBase<LargeSteamWiremill
     @Override
     public int getMaxParallelRecipes() {
         if (tierMachine == 1) {
-            return 4;
-        } else if (tierMachine == 2) {
             return 8;
+        } else if (tierMachine == 2) {
+            return 16;
         }
-        return 4;
+        return 8;
     }
 
     @Override
@@ -186,7 +186,7 @@ public class LargeSteamWiremill extends SteamMultiMachineBase<LargeSteamWiremill
 
     @Override
     public double getDurationModifier() {
-        return super.getDurationModifier() / 1.11 / tierMachine;
+        return super.getDurationModifier() / 0.75 / tierMachine;
     }
 
     @Override

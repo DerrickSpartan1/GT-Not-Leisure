@@ -188,11 +188,11 @@ public class LargeSteamCrusher extends SteamMultiMachineBase<LargeSteamCrusher> 
     @Override
     public int getMaxParallelRecipes() {
         if (tierMachine == 1) {
-            return 128;
+            return 8;
         } else if (tierMachine == 2) {
-            return 256;
+            return 16;
         }
-        return 128;
+        return 8;
     }
 
     @Override
@@ -202,12 +202,12 @@ public class LargeSteamCrusher extends SteamMultiMachineBase<LargeSteamCrusher> 
 
     @Override
     public double getDurationModifier() {
-        return super.getDurationModifier() / 10.0 / tierMachine;
+        return super.getDurationModifier() / 0.75 / tierMachine;
     }
 
     @Override
     public int getTierRecipes() {
-        return tierMachine == 2 ? 3 : 2;
+        return 2;
     }
 
     @Override

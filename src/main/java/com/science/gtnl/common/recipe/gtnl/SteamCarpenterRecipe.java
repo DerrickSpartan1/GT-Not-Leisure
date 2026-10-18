@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import com.science.gtnl.api.IRecipePool;
+import com.science.gtnl.common.machine.multiblock.steam.SteamCarpenter;
 import com.science.gtnl.common.material.GTNLRecipeMaps;
 import com.science.gtnl.utils.enums.GTNLItemList;
 import com.science.gtnl.utils.recipes.RecipeBuilder;
@@ -102,6 +103,7 @@ public class SteamCarpenterRecipe implements IRecipePool {
         steamCarpenterOutput.stackSize = steamCarpenterOutput.stackSize * 3 / 2;
         RecipeBuilder.builder()
             .itemInputs(singleLog)
+            .special(SteamCarpenter.getDisplaySawBlade())
             .itemOutputs(
                 GTUtility.copyOrNull(steamCarpenterOutput),
                 GTOreDictUnificator.get(OrePrefixes.dust, Materials.Wood, 1L))
@@ -119,12 +121,14 @@ public class SteamCarpenterRecipe implements IRecipePool {
             .addTo(LR);
         RecipeBuilder.builder()
             .itemInputs(GTUtility.copyAmount(1, plankStack), GTUtility.getIntegratedCircuit(1))
+            .special(SteamCarpenter.getDisplaySawBlade())
             .itemOutputs(GTOreDictUnificator.get(OrePrefixes.stick, Materials.Wood, 2L))
             .duration(2 * GTRecipeBuilder.SECONDS)
             .eut(8)
             .addTo(SCR);
         RecipeBuilder.builder()
             .itemInputs(GTUtility.copyAmount(1, plankStack), GTUtility.getIntegratedCircuit(2))
+            .special(SteamCarpenter.getDisplaySawBlade())
             .itemOutputs(GTOreDictUnificator.get(OrePrefixes.slab, Materials.Wood, 2L))
             .duration(2 * GTRecipeBuilder.SECONDS)
             .eut(8)

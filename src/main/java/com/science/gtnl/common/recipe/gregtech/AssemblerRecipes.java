@@ -1993,7 +1993,7 @@ public class AssemblerRecipes implements IRecipePool {
             .itemOutputs(GTNLItemList.SteamElevator.get(1))
             .fluidInputs(GTNLMaterials.Stronze.getMolten(1296))
             .duration(600)
-            .eut(30)
+            .eut(TierEU.RECIPE_MV)
             .addTo(As);
 
         RecipeBuilder.builder()

@@ -1,14 +1,11 @@
 package com.science.gtnl.common.recipe.gregtech;
 
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import com.science.gtnl.api.IRecipePool;
 import com.science.gtnl.common.material.GTNLMaterials;
 import com.science.gtnl.config.MainConfig;
 import com.science.gtnl.utils.enums.GTNLItemList;
-import com.science.gtnl.utils.enums.ModsItemlist;
 import com.science.gtnl.utils.recipes.RecipeBuilder;
 
 import bartworks.system.material.CircuitGeneration.CircuitPartsItem;
@@ -23,7 +20,6 @@ import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.util.GTOreDictUnificator;
 import gregtech.api.util.GTRecipeBuilder;
 import gregtech.api.util.GTRecipeConstants;
-import gregtech.api.util.GTUtility;
 import gregtech.api.util.recipe.Scanning;
 import gtPlusPlus.core.material.MaterialMisc;
 import tectech.recipe.TTRecipeAdder;
@@ -226,67 +222,6 @@ public class CircuitAssemblerRecipes implements IRecipePool {
             .duration(790)
             .eut(125829120)
             .requiresCleanRoom()
-            .addTo(CAR);
-
-        RecipeBuilder.builder()
-            .itemInputs(
-                ItemList.Circuit_Primitive.get(0),
-                GTOreDictUnificator.get(OrePrefixes.plate, Materials.Steel, 1),
-                new ItemStack(Items.redstone))
-            .fluidInputs(Materials.Glue.getFluid(20))
-            .itemOutputs(GTNLItemList.VerySimpleCircuit.get(2))
-            .duration(40)
-            .eut(7)
-            .addTo(CAR);
-
-        RecipeBuilder.builder()
-            .itemInputs(
-                ModsItemlist.IC2ItemPartCircuit.get(0),
-                GTNLItemList.VerySimpleCircuit.get(1),
-                GTOreDictUnificator.get(OrePrefixes.plate, Materials.Iron, 1),
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.RedAlloy, 1))
-            .fluidInputs(Materials.Glue.getFluid(20))
-            .itemOutputs(GTNLItemList.SimpleCircuit.get(2))
-            .duration(80)
-            .eut(16)
-            .addTo(CAR);
-
-        RecipeBuilder.builder()
-            .itemInputs(
-                GTUtility.copyAmount(0, ItemList.Circuit_Good.get(1L)),
-                new ItemStack(Items.paper),
-                GTNLItemList.SimpleCircuit.get(2),
-                GTOreDictUnificator.get(OrePrefixes.plate, Materials.CastIron, 1),
-                GTOreDictUnificator.get(OrePrefixes.dustSmall, Materials.Diamond, 1))
-            .fluidInputs(Materials.Glue.getFluid(20))
-            .itemOutputs(GTNLItemList.BasicCircuit.get(2))
-            .duration(160)
-            .eut(30)
-            .addTo(CAR);
-
-        RecipeBuilder.builder()
-            .itemInputs(
-                ModsItemlist.IC2ItemPartCircuitAdv.get(0),
-                ItemList.Circuit_Board_Coated_Basic.get(1L),
-                GTNLItemList.BasicCircuit.get(1),
-                GTOreDictUnificator.get(OrePrefixes.plate, Materials.Steel, 1),
-                GTOreDictUnificator.get(OrePrefixes.dustSmall, Materials.Obsidian, 1),
-                GTOreDictUnificator.get(OrePrefixes.screw, Materials.RedAlloy, 1))
-            .fluidInputs(Materials.Glue.getFluid(20))
-            .itemOutputs(GTNLItemList.AdvancedCircuit.get(1))
-            .duration(80)
-            .eut(120)
-            .addTo(CAR);
-
-        RecipeBuilder.builder()
-            .itemInputs(
-                ItemList.Circuit_Board_Phenolic_Good.get(1L),
-                GTNLItemList.AdvancedCircuit.get(1),
-                GTOreDictUnificator.get(OrePrefixes.foil, Materials.RedAlloy, 8))
-            .fluidInputs(SubstituteFluidStack.soldering(144))
-            .itemOutputs(GTNLItemList.EliteCircuit.get(1))
-            .duration(200)
-            .eut(480)
             .addTo(CAR);
 
         RecipeBuilder.builder()

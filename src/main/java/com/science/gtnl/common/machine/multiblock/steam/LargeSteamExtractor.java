@@ -171,11 +171,11 @@ public class LargeSteamExtractor extends SteamMultiMachineBase<LargeSteamExtract
     @Override
     public int getMaxParallelRecipes() {
         if (tierMachine == 1) {
-            return 16;
+            return 8;
         } else if (tierMachine == 2) {
-            return 32;
+            return 16;
         }
-        return 16;
+        return 8;
     }
 
     @Override
@@ -185,7 +185,7 @@ public class LargeSteamExtractor extends SteamMultiMachineBase<LargeSteamExtract
 
     @Override
     public double getDurationModifier() {
-        return super.getDurationModifier() / 1.33 / tierMachine;
+        return super.getDurationModifier() / 0.75 / tierMachine;
     }
 
     @Override

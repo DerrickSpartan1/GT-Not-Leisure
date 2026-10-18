@@ -540,7 +540,7 @@ gtnl.machine.large_steam_circuit_assembler.name=大型蒸汽电路组装机
 gtnl.machine.large_steam_circuit_assembler.recipe_type=电路组装机
 gtnl.machine.large_steam_circuit_assembler.tooltip.0=比同等级的单方块组装机快11%
 gtnl.machine.large_steam_circuit_assembler.tooltip.1=仅消耗正常需求125%的蒸汽
-gtnl.machine.large_steam_circuit_assembler.tooltip.2=一次可处理多达16个物品
+gtnl.machine.large_steam_circuit_assembler.tooltip.2=一次可处理多达8个物品，高压模式下为16个
 gtnl.machine.large_steam_circuit_assembler.tooltip.3=原始科技！
 gtnl.machine.large_steam_circuit_assembler.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
@@ -647,9 +647,9 @@ gtnl.machine.neutronium_wire_cutting.tooltip.casing=任意超能硅岩强化无�
 
 gtnl.machine.large_steam_crusher.name=大型蒸汽破碎机
 gtnl.machine.large_steam_crusher.recipe_type=粉碎机
-gtnl.machine.large_steam_crusher.tooltip.0=比同等级的单方块粉碎机快900%
+gtnl.machine.large_steam_crusher.tooltip.0=比同压力的单方块蒸汽打粉机快50%
 gtnl.machine.large_steam_crusher.tooltip.1=仅消耗正常需求80%的蒸汽
-gtnl.machine.large_steam_crusher.tooltip.2=一次可处理多达128个物品
+gtnl.machine.large_steam_crusher.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_crusher.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.component_assembler.name=部件组装机
@@ -666,23 +666,23 @@ gtnl.machine.component_assembler.tooltip.casing=任意脱氧钢机械方块
 
 gtnl.machine.large_steam_furnace.name=大型蒸汽熔炉
 gtnl.machine.large_steam_furnace.recipe_type=熔炉
-gtnl.machine.large_steam_furnace.tooltip.0=比同等级的单方块熔炉快900%
+gtnl.machine.large_steam_furnace.tooltip.0=比同等压力的单方块蒸汽熔炉快50%
 gtnl.machine.large_steam_furnace.tooltip.1=仅消耗正常需求50%的蒸汽
-gtnl.machine.large_steam_furnace.tooltip.2=一次可处理多达128个物品
+gtnl.machine.large_steam_furnace.tooltip.2=一次可处理多达32个物品
 gtnl.machine.large_steam_furnace.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.large_steam_alloy_smelter.name=大型蒸汽铸形炉
 gtnl.machine.large_steam_alloy_smelter.recipe_type=合金炉
-gtnl.machine.large_steam_alloy_smelter.tooltip.0=比同等级的单方块合金炉快43%
+gtnl.machine.large_steam_alloy_smelter.tooltip.0=蒸汽熔合机的升级版：比同压力的单方块蒸汽合金炉快50%
 gtnl.machine.large_steam_alloy_smelter.tooltip.1=仅消耗正常需求80%的蒸汽
-gtnl.machine.large_steam_alloy_smelter.tooltip.2=一次可处理多达16个物品
+gtnl.machine.large_steam_alloy_smelter.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_alloy_smelter.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.large_steam_thermal_centrifuge.name=大型蒸汽热力离心机
 gtnl.machine.large_steam_thermal_centrifuge.recipe_type=热力离心
-gtnl.machine.large_steam_thermal_centrifuge.tooltip.0=比同等级的单方块热力离心机快300%
+gtnl.machine.large_steam_thermal_centrifuge.tooltip.0=比同压力的单方块蒸汽热力离心机快50%
 gtnl.machine.large_steam_thermal_centrifuge.tooltip.1=仅消耗正常需求80%的蒸汽
-gtnl.machine.large_steam_thermal_centrifuge.tooltip.2=一次可处理多达32个物品
+gtnl.machine.large_steam_thermal_centrifuge.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_thermal_centrifuge.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.steam_cracking.name=蒸汽裂化机
@@ -694,9 +694,9 @@ gtnl.machine.steam_cracking.tooltip.casing=任意镀铜砖块或脱氧钢机械�
 
 gtnl.machine.large_steam_chemical_bath.name=大型蒸汽化学浸洗机
 gtnl.machine.large_steam_chemical_bath.recipe_type=化学浸洗机
-gtnl.machine.large_steam_chemical_bath.tooltip.0=比同等级的单方块化学浸洗机快25%
+gtnl.machine.large_steam_chemical_bath.tooltip.0=比同压力的单方块蒸汽化学浸洗机快50%
 gtnl.machine.large_steam_chemical_bath.tooltip.1=仅消耗正常需求80%的蒸汽
-gtnl.machine.large_steam_chemical_bath.tooltip.2=一次可处理多达16个物品
+gtnl.machine.large_steam_chemical_bath.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_chemical_bath.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.primitive_distillation_tower.name=原始蒸馏塔
@@ -859,18 +859,18 @@ gtnl.machine.mega_blast_furnace.tooltip.5=安装UEV及以上的并行控制仓�
 gtnl.machine.mega_blast_furnace.tooltip.casing.0=任意冶炼炉机械方块
 gtnl.machine.mega_blast_furnace.tooltip.casing.1=顶部中心放射硅岩合金机械方块
 
-gtnl.machine.bricked_blast_furnace.name=砖高炉
+gtnl.machine.bricked_blast_furnace.name=大型高炉
 gtnl.machine.bricked_blast_furnace.recipe_type=§c跃§6进§e一§a号§b原§9始§d高§5炉
 gtnl.machine.bricked_blast_furnace.tooltip.0=用于炼钢或一般的热冶金
 gtnl.machine.bricked_blast_furnace.tooltip.1=不同于原来的砖高炉，现在使用仓室进行物品交互
 gtnl.machine.bricked_blast_furnace.tooltip.2=获益于炉身的改进，
-gtnl.machine.bricked_blast_furnace.tooltip.3=现在原始高炉的任意配方仅需§l§c6.4§r秒！
-gtnl.machine.bricked_blast_furnace.tooltip.4=代价是造价比以前昂贵了§l§c8§r倍
-gtnl.machine.bricked_blast_furnace.structure.0=355x 耐火砖
-gtnl.machine.bricked_blast_furnace.structure.1=387x 石砖
-gtnl.machine.bricked_blast_furnace.structure.2=70x 青铜框架
-gtnl.machine.bricked_blast_furnace.structure.3=24x 青铜燃烧室
-gtnl.machine.bricked_blast_furnace.structure.4=16x 镀铜砖块
+gtnl.machine.bricked_blast_furnace.tooltip.3=同时运行§l§c4§r个配方，每个配方的速度是砖高炉的§l§c2§r倍
+gtnl.machine.bricked_blast_furnace.tooltip.4=污染仅为四座砖高炉的一半
+gtnl.machine.bricked_blast_furnace.structure.0=76x 耐火砖
+gtnl.machine.bricked_blast_furnace.structure.1=32x 石砖
+gtnl.machine.bricked_blast_furnace.structure.2=9x 青铜燃烧室
+gtnl.machine.bricked_blast_furnace.structure.3=12x 镀铜砖块
+gtnl.machine.bricked_blast_furnace.structure.4=总线替换底层的镀铜砖块（至少保留8个）
 
 gtnl.machine.rare_earth_centrifugal.name=稀土离心机
 gtnl.recipe.rare_earth_centrifugal=稀土离心
@@ -1139,18 +1139,18 @@ gtnl.machine.alloy_blast_smelter.tooltip.casing=任意冶炼炉机械方块
 
 gtnl.machine.large_steam_extractor.name=大型蒸汽提取机
 gtnl.machine.large_steam_extractor.recipe_type=提取机
-gtnl.machine.large_steam_extractor.tooltip.0=比同等级的单方块提取机快33%
+gtnl.machine.large_steam_extractor.tooltip.0=比同压力的单方块蒸汽提取机快50%
 gtnl.machine.large_steam_extractor.tooltip.1=仅消耗正常需求90%的蒸汽
-gtnl.machine.large_steam_extractor.tooltip.2=一次可处理多达16个物品
+gtnl.machine.large_steam_extractor.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_extractor.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.large_steam_ore_washer.name=大型蒸汽洗矿机
 gtnl.machine.large_steam_ore_washer.recipe_type=洗矿机 / 简易洗矿池
 gtnl.machine.large_steam_ore_washer.mode.0=洗矿机
 gtnl.machine.large_steam_ore_washer.mode.1=简易洗矿池
-gtnl.machine.large_steam_ore_washer.tooltip.0=比同等级的单方块洗矿机快1900%
+gtnl.machine.large_steam_ore_washer.tooltip.0=比同压力的单方块蒸汽洗矿机快50%
 gtnl.machine.large_steam_ore_washer.tooltip.1=仅消耗正常需求60%的蒸汽
-gtnl.machine.large_steam_ore_washer.tooltip.2=一次可处理多达32个物品
+gtnl.machine.large_steam_ore_washer.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_ore_washer.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.large_hammer.name=大型锻造锤
@@ -1287,9 +1287,9 @@ gtnl.machine.draconic_fusion_crafting.tooltip.casing=任意背景辐射吸收机
 
 gtnl.machine.large_steam_extruder.name=大型蒸汽压模机
 gtnl.machine.large_steam_extruder.recipe_type=压模机
-gtnl.machine.large_steam_extruder.tooltip.0=比同等级的单方块压模机快11%
+gtnl.machine.large_steam_extruder.tooltip.0=比同压力的单方块蒸汽压模器快50%
 gtnl.machine.large_steam_extruder.tooltip.1=仅消耗正常需求95%的蒸汽
-gtnl.machine.large_steam_extruder.tooltip.2=一次可处理多达8个物品
+gtnl.machine.large_steam_extruder.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_extruder.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.decay_hastener.name=衰变加速器
@@ -1374,30 +1374,30 @@ gtnl.machine.extreme_fusion_reactor.tooltip.casing=任意聚变机械方块
 
 gtnl.machine.large_steam_centrifuge.name=大型蒸汽离心机
 gtnl.machine.large_steam_centrifuge.recipe_type=离心机
-gtnl.machine.large_steam_centrifuge.tooltip.0=比同等级的单方块离心机快43%
+gtnl.machine.large_steam_centrifuge.tooltip.0=比同压力的单方块蒸汽离心机快50%
 gtnl.machine.large_steam_centrifuge.tooltip.1=仅消耗正常需求100%的蒸汽
-gtnl.machine.large_steam_centrifuge.tooltip.2=一次可处理多达16个物品
+gtnl.machine.large_steam_centrifuge.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_centrifuge.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.large_steam_hammer.name=大型蒸汽锻造锤
 gtnl.machine.large_steam_hammer.recipe_type=锻造锤
-gtnl.machine.large_steam_hammer.tooltip.0=比同等级的单方块锻造锤快33%
+gtnl.machine.large_steam_hammer.tooltip.0=比同压力的单方块蒸汽锻造锤快50%
 gtnl.machine.large_steam_hammer.tooltip.1=仅消耗正常需求75%的蒸汽
-gtnl.machine.large_steam_hammer.tooltip.2=一次可处理多达32个物品
+gtnl.machine.large_steam_hammer.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_hammer.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.large_steam_compressor.name=大型蒸汽压缩机
 gtnl.machine.large_steam_compressor.recipe_type=压缩机
-gtnl.machine.large_steam_compressor.tooltip.0=比同等级的单方块压缩机快100%
+gtnl.machine.large_steam_compressor.tooltip.0=比同压力的单方块蒸汽压缩机快50%
 gtnl.machine.large_steam_compressor.tooltip.1=仅消耗正常需求80%的蒸汽
-gtnl.machine.large_steam_compressor.tooltip.2=一次可处理多达16个物品
+gtnl.machine.large_steam_compressor.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_compressor.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.large_steam_sifter.name=大型蒸汽筛选机
 gtnl.machine.large_steam_sifter.recipe_type=筛选机
-gtnl.machine.large_steam_sifter.tooltip.0=比同等级的单方块筛选机快33%
+gtnl.machine.large_steam_sifter.tooltip.0=比同压力的单方块蒸汽筛选机快50%
 gtnl.machine.large_steam_sifter.tooltip.1=仅消耗正常需求80%的蒸汽
-gtnl.machine.large_steam_sifter.tooltip.2=一次可处理多达16个物品
+gtnl.machine.large_steam_sifter.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_sifter.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.large_boiler_bronze.name=大型青铜锅炉
@@ -1415,15 +1415,15 @@ gtnl.machine.large_boiler.tooltip.firebox_casing=任意燃烧室机械方块
 
 gtnl.machine.large_steam_forming_press.name=大型蒸汽冲压机床
 gtnl.machine.large_steam_forming_press.recipe_type=冲压机床
-gtnl.machine.large_steam_forming_press.tooltip.0=比同等级的单方块冲压机床快25%
+gtnl.machine.large_steam_forming_press.tooltip.0=比同压力的单方块蒸汽冲压机床快50%
 gtnl.machine.large_steam_forming_press.tooltip.1=仅消耗正常需求90%的蒸汽
-gtnl.machine.large_steam_forming_press.tooltip.2=一次可处理多达16个物品
+gtnl.machine.large_steam_forming_press.tooltip.2=一次可处理多达8个物品，高压模式下16个。可运行LV配方，高压模式下可运行MV配方
 gtnl.machine.large_steam_forming_press.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.large_steam_mixer.name=大型蒸汽搅拌机
 gtnl.machine.large_steam_mixer.recipe_type=搅拌机
-gtnl.machine.large_steam_mixer.tooltip.0=比同等级的单方块搅拌机慢33%
-gtnl.machine.large_steam_mixer.tooltip.1=一次可处理多达8个物品
+gtnl.machine.large_steam_mixer.tooltip.0=蒸汽混合器的升级版：比同压力的单方块蒸汽搅拌机快50%
+gtnl.machine.large_steam_mixer.tooltip.1=一次可处理多达8个物品，高压模式下16个，HV升级后32个
 gtnl.machine.large_steam_mixer.tooltip.2=在控制器内放入不锈钢齿轮来解锁HV配方
 gtnl.machine.large_steam_mixer.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
 
@@ -1500,7 +1500,7 @@ gtnl.machine.steam_gate_assembler.tooltip.3=作者：§d§oSteam§f§oIs§d§oTh
 
 gtnl.machine.mega_steam_compressor.name=超级蒸汽压缩机
 gtnl.machine.mega_steam_compressor.recipe_type=超级压缩
-gtnl.machine.mega_steam_compressor.tooltip.0=拥有256并行
+gtnl.machine.mega_steam_compressor.tooltip.0=拥有64并行。最高运行MV配方
 gtnl.machine.mega_steam_compressor.tooltip.1=§b§o喷射超乎想象的高压蒸汽流，以强力压缩材料。
 gtnl.machine.mega_steam_compressor.tooltip.2=§b§o可制造超致密金属板……
 gtnl.machine.mega_steam_compressor.tooltip.3=作者：§d§oSteam§f§oIs§d§oThe§f§oNumber
@@ -1508,7 +1508,7 @@ gtnl.machine.mega_steam_compressor.tooltip.3=作者：§d§oSteam§f§oIs§d§oT
 gtnl.machine.mega_solar_boiler.name=巨型高压太阳能锅炉
 gtnl.machine.mega_solar_boiler.recipe_type=太阳能锅炉
 gtnl.machine.mega_solar_boiler.tooltip.0=也许鸿蒙之眼能够提供足够的银子来支撑这庞然大物
-gtnl.machine.mega_solar_boiler.tooltip.1=产生 96,000 升/秒的蒸汽
+gtnl.machine.mega_solar_boiler.tooltip.1=白天产出 24,000 L/s 蒸汽
 gtnl.machine.mega_solar_boiler.tooltip.2=§b§o每秒产生的蒸汽比你的Steam游戏库里未游玩的游戏还要多
 
 gtnl.machine.steam_cactus_wonder.name=仙人掌奇迹
@@ -1516,7 +1516,7 @@ gtnl.recipe.cactus_wonder_fake=献给仙人掌神的供奉
 gtnl.machine.steam_cactus_wonder.recipe_type=仙人掌祝福之庙
 gtnl.machine.steam_cactus_wonder.tooltip.0=燃烧仙人掌焦炭和仙人掌炭，以产生越来越高效的蒸汽
 gtnl.machine.steam_cactus_wonder.tooltip.1=仙人掌奇迹每秒都会消耗所有储存的供奉
-gtnl.machine.steam_cactus_wonder.tooltip.2=仙人掌之神将保存它们的价值，并以蒸汽祝福回馈她忠诚的狂热信徒
+gtnl.machine.steam_cactus_wonder.tooltip.2=仙人掌之神将保存它们的价值，并以蒸汽祝福回馈她忠诚的狂热信徒，最高32,000 L/s
 gtnl.machine.steam_cactus_wonder.tooltip.3=一次只能接受一种类型的供奉
 gtnl.machine.steam_cactus_wonder.tooltip.4=需要在沙子上种植成熟的仙人掌才能成型
 gtnl.machine.steam_cactus_wonder.tooltip.5=§b§o仙人掌🙏
@@ -1526,12 +1526,15 @@ gtnl.machine.steam_carpenter.name=蒸汽木匠
 gtnl.recipe.steam_carpenter=蒸汽工艺
 gtnl.machine.steam_carpenter.recipe_type=木匠
 gtnl.machine.steam_carpenter.tooltip.0=§b§o高效地将木材切割成多种形态
+gtnl.machine.steam_carpenter.tooltip.2=切割原木和木板需要在输入总线中放入任意圆锯锯刃，每次切割都会磨损锯刃，材料越好越耐用
+GT5U.gui.text.no_saw_blade=输入总线中没有圆锯锯刃
+gtnl.tooltip.saw_blade_wear=§7蒸汽木工机剩余切割次数：§e%s§7 / %s
 gtnl.machine.steam_carpenter.tooltip.1=作者：§d§oSteam§f§oIs§d§oThe§f§oNumber
 
 gtnl.machine.steam_lava_maker.name=超级石头加热器
 gtnl.recipe.lava_maker=蒸汽蒸融
 gtnl.machine.steam_lava_maker.recipe_type=超级加热
-gtnl.machine.steam_lava_maker.tooltip.0=可一次熔化最多 4 块石头
+gtnl.machine.steam_lava_maker.tooltip.0=一次熔化一块石头
 gtnl.machine.steam_lava_maker.tooltip.1=§b§o提高温度
 gtnl.machine.steam_lava_maker.tooltip.2=作者：§d§oSteam§f§oIs§d§oThe§f§oNumber
 gtnl.machine.steam_lava_maker.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
@@ -1552,7 +1555,7 @@ gtnl.machine.steam_rock_breaker.recipe_type=碎石机
 gtnl.machine.steam_rock_breaker.message.auto_placing_done=§6自动放置已完成！现在请自行放置水和岩浆！
 gtnl.machine.steam_rock_breaker.tooltip.0=像碎石机一样工作，但更大
 gtnl.machine.steam_rock_breaker.tooltip.1=电路板1 = 圆石，电路板2 = 石头，电路板3 = 黑曜石
-gtnl.machine.steam_rock_breaker.tooltip.2=一次可处理多达8配方
+gtnl.machine.steam_rock_breaker.tooltip.2=最多同时处理 4 个配方
 gtnl.machine.steam_rock_breaker.tooltip.3=§b§o石石石石石石石石石石石石石石石石石石石石头头头头头头头头头头头头头头头头头头头头
 gtnl.machine.steam_rock_breaker.tooltip.4=§b§o注意结构共用：>
 gtnl.machine.steam_rock_breaker.tooltip.casing=任意镀铜砖块或脱氧钢机械方块
@@ -1560,7 +1563,7 @@ gtnl.machine.steam_rock_breaker.tooltip.casing=任意镀铜砖块或脱氧钢机
 gtnl.machine.steam_woodcutter.name=蒸汽树场
 gtnl.recipe.woodcutter=伐木场
 gtnl.machine.steam_woodcutter.recipe_type=伐木场
-gtnl.machine.steam_woodcutter.tooltip.0=§b§o从树苗缓慢生长成树木
+gtnl.machine.steam_woodcutter.tooltip.0=§b§o从树苗缓慢生长成树木§r 需要在输入总线中放入任意锯片，每次收获都会磨损它
 gtnl.machine.steam_woodcutter.tooltip.1=作者：§d§oSteam§f§oIs§d§oThe§f§oNumber
 
 gtnl.machine.steam_extractinator.name=蒸汽精萃机
@@ -1568,7 +1571,7 @@ gtnl.recipe.steam_extractinator=萃取
 gtnl.machine.steam_extractinator.recipe_type=资源萃取
 gtnl.machine.steam_extractinator.tooltip.0=蒸发不同泥浆中的杂质，以生成可用材料
 gtnl.machine.steam_extractinator.tooltip.1=一次可处理多达4个物品
-gtnl.machine.steam_extractinator.tooltip.2=§b§o从蒸汽到岩石，压力的力量或许能带来无限财富！
+gtnl.machine.steam_extractinator.tooltip.2=§b§o从蒸汽到岩石，压力的力量或许能为你带来一点额外的财富。
 gtnl.machine.steam_extractinator.tooltip.top_casing=顶部青铜机械方块
 gtnl.machine.steam_extractinator.tooltip.bottom_casing=底部青铜机械方块
 gtnl.machine.steam_extractinator.tooltip.middle_casing=上下之间青铜机械方块
@@ -1595,7 +1598,7 @@ gtnl.machine.steam_infernal_coke_oven.name=炼狱焦炉
 gtnl.recipe.infernal_coke_oven=焦炉但是超模
 gtnl.machine.steam_infernal_coke_oven.recipe_type=焦炉
 gtnl.machine.steam_infernal_coke_oven.tooltip.0=比粘土高炉更高效运作
-gtnl.machine.steam_infernal_coke_oven.tooltip.1=每连续工作5秒，速度提升5%，最高可达1000%
+gtnl.machine.steam_infernal_coke_oven.tooltip.1=每连续工作 5 秒加速 5%，最高 200%
 gtnl.machine.steam_infernal_coke_oven.tooltip.2=§b§o太棒了！
 
 gtnl.machine.integrated_assembly_facility.name=综合组装车间
@@ -1922,16 +1925,16 @@ gtnl.waila.steam_ore_processor_module.actual_parallel=实际并行：
 
 gtnl.machine.large_steam_lathe.name=大型蒸汽车床
 gtnl.machine.large_steam_lathe.recipe_type=车床
-gtnl.machine.large_steam_lathe.tooltip.0=比同等级的单方块车床快11%
+gtnl.machine.large_steam_lathe.tooltip.0=比同压力的单方块蒸汽车床快50%
 gtnl.machine.large_steam_lathe.tooltip.1=仅消耗正常需求95%的蒸汽
-gtnl.machine.large_steam_lathe.tooltip.2=一次可处理多达8个物品
+gtnl.machine.large_steam_lathe.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_lathe.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.large_steam_cutting.name=大型蒸汽切割机
 gtnl.machine.large_steam_cutting.recipe_type=切割机
-gtnl.machine.large_steam_cutting.tooltip.0=比同等级的单方块切割机快11%
+gtnl.machine.large_steam_cutting.tooltip.0=比同压力的单方块蒸汽切割机快50%
 gtnl.machine.large_steam_cutting.tooltip.1=仅消耗正常需求95%的蒸汽
-gtnl.machine.large_steam_cutting.tooltip.2=一次可处理多达8个物品
+gtnl.machine.large_steam_cutting.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_cutting.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.steam_item_vault.name=蒸汽物品保险库
@@ -2219,9 +2222,9 @@ gtnl.machine.kerr_newman_homogenizer.casing=任意强化镀铱机械方块
 
 gtnl.machine.large_steam_bending.name=大型蒸汽卷板机
 gtnl.machine.large_steam_bending.recipe_type=卷板机
-gtnl.machine.large_steam_bending.tooltip.0=比同等级的单方块卷板机快5%
+gtnl.machine.large_steam_bending.tooltip.0=比同压力的单方块蒸汽弯板机快50%
 gtnl.machine.large_steam_bending.tooltip.1=仅消耗正常需求95%的蒸汽
-gtnl.machine.large_steam_bending.tooltip.2=一次可处理多达8个物品
+gtnl.machine.large_steam_bending.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_bending.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.chemical_complex.name=化工复合体
@@ -2323,9 +2326,9 @@ gtnl.gui.pcb_factory.upgrade.t4_machine_tier=T4机器等级升级
 gtnl.machine.furnace_array.name=熔炉组
 gtnl.machine.furnace_array.recipe_type=熔炉
 gtnl.machine.furnace_array.info.0=§o§6我说2048熔炉组比工业熔炉数值，因为熔炉组每消耗8个圆石就能加1并行
-gtnl.machine.furnace_array.info.1=初始最大并行为1，每输入一个熔炉，最大并行加1
+gtnl.machine.furnace_array.info.1=初始最大并行为1，每输入一个熔炉，最大并行加1，上限为64
 gtnl.machine.furnace_array.info.2=每输入32煤炭，永久点燃一个熔炉，使最大可用并行加1
-gtnl.machine.furnace_array.info.3=固定运行时间为5秒
+gtnl.machine.furnace_array.info.3=固定运行时间为90秒
 gtnl.machine.furnace_array.info.4=每个熔炉按照期望的运行速度产生不可思议的效果
 gtnl.machine.furnace_array.casing=压缩熔炉机壳
 gtnl.machine.furnace_array.title=大家快来看 %s, %s, %s 的%s设计的%sms延迟熔炉！
@@ -2372,9 +2375,9 @@ gtnl.machine.highway_to_hell.casing=任意放射硅岩合金机械方块
 
 gtnl.machine.large_steam_wiremill.name=大型蒸汽线材轧机
 gtnl.machine.large_steam_wiremill.recipe_type=线材轧机
-gtnl.machine.large_steam_wiremill.tooltip.0=比同等级的单方块线材轧机快11%
+gtnl.machine.large_steam_wiremill.tooltip.0=比同压力的单方块蒸汽线材轧机快50%
 gtnl.machine.large_steam_wiremill.tooltip.1=仅消耗正常需求85%的蒸汽
-gtnl.machine.large_steam_wiremill.tooltip.2=一次可处理多达4个物品
+gtnl.machine.large_steam_wiremill.tooltip.2=一次可处理多达8个物品，高压模式下16个。最高运行MV配方
 gtnl.machine.large_steam_wiremill.casing=任意镀铜砖块或脱氧钢机械方块
 
 gtnl.machine.research_center.name=科研中心
@@ -3588,21 +3591,21 @@ item.gtnl.steamgate_core_crystal.tooltip.0=由纯净凝结蒸汽打造的晶体�
 gtnl.item.meta_item.89.name=液压马达
 gtnl.item.meta_item.90.name=液压活塞
 gtnl.item.meta_item.91.name=液压泵
-item.gtnl.hydraulic_pump.tooltip.0=作覆盖板时，1,048,576升/t(20,971,520升/秒)
+item.gtnl.hydraulic_pump.tooltip.0=作覆盖板时，128升/t(2,560升/秒)
 gtnl.item.meta_item.92.name=液压机械臂
 gtnl.item.meta_item.93.name=液压传送带
-item.gtnl.hydraulic_conveyor.tooltip.0=16 组物品每 1/20 秒(作覆盖板时)
+item.gtnl.hydraulic_conveyor.tooltip.0=1 组物品每 5 秒(作覆盖板时)
 gtnl.item.meta_item.94.name=液压流体校准器
-item.gtnl.hydraulic_regulator.tooltip.0=可以调节为至多20,971,520升/秒(作覆盖板时)
+item.gtnl.hydraulic_regulator.tooltip.0=可以调节为至多40,960升/秒(作覆盖板时)
 item.gtnl.hydraulic_regulator.tooltip.1=每次右键/螺丝刀右键/Shift+螺丝刀右键
 item.gtnl.hydraulic_regulator.tooltip.2=可以调整流速1/16/256升/秒
 gtnl.item.meta_item.95.name=液压蒸汽发生器
 gtnl.item.meta_item.96.name=液压蒸汽发射器
 gtnl.item.meta_item.97.name=液压蒸汽接收器
 gtnl.item.meta_item.98.name=液压蒸汽阀
-item.gtnl.hydraulic_steam_valve.tooltip.0=作覆盖板时，16,777,216升/t(335,544,320升/秒)
+item.gtnl.hydraulic_steam_valve.tooltip.0=作覆盖板时，2,048升/t(40,960升/秒)
 gtnl.item.meta_item.99.name=液压蒸汽校准器
-item.gtnl.hydraulic_steam_regulator.tooltip.0=作覆盖板时，16,777,216升/t(335,544,320升/秒)
+item.gtnl.hydraulic_steam_regulator.tooltip.0=作覆盖板时，128升/t(2,560升/秒)
 gtnl.item.meta_item.100.name=SadBapyCat 代币
 item.gtnl.sad_bapy_cat_token.tooltip.0=:sadbapycat:
 gtnl.item.meta_item.101.name=压缩蒸汽涡轮
@@ -3861,7 +3864,7 @@ gtnl.tooltip.machine_tier=机器等级：
 gtnl.machine.tooltip.tier=机器等级：%s%s
 gtnl.tooltip.parallel=并行：
 gtnl.machine.tooltip.parallel=并行：%s%s
-gtnl.machine.steam.high_pressure.tooltip=高压模式下处理速度和蒸汽消耗翻倍
+gtnl.machine.steam.high_pressure.tooltip=高压模式下处理速度和蒸汽消耗翻倍。超频：每次速度2倍、蒸汽4倍，配方每低于机器一个电压等级可超频一次（青铜LV，钢MV）
 gtnl.machine.steam.overclocking_count=超频次数
 
 gtnl.machine.common.gtm.tooltip.0=比相同电压的机器快67%

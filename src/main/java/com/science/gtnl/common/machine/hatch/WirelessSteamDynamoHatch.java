@@ -94,7 +94,7 @@ public class WirelessSteamDynamoHatch extends MTEHatchOutput implements IFluidSt
 
     @Override
     public int getCapacity() {
-        return mTier == 0 ? 128000000 : Integer.MAX_VALUE;
+        return mTier == 0 ? 256000 : Integer.MAX_VALUE;
     }
 
     @Override

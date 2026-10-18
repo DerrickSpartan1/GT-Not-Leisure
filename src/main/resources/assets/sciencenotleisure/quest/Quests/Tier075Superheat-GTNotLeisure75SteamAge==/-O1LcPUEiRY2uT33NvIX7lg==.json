@@ -32,7 +32,71 @@
   },
   "questIDHigh:4": 4274721151971902861,
   "questIDLow:4": -5886347865365283946,
-  "rewards:9": {},
+  "rewards:9": {
+    "0:10": {
+      "ignoreDisabled:1": 0,
+      "index:3": 0,
+      "rewardID:8": "bq_standard:item",
+      "rewards:9": {
+        "0:10": {
+          "Count:3": 16,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "minecraft:furnace"
+        },
+        "1:10": {
+          "Count:3": 64,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "minecraft:coal"
+        },
+        "2:10": {
+          "Count:3": 1,
+          "Damage:2": 4,
+          "OreDict:8": "",
+          "id:8": "enhancedlootbags:lootbag"
+        }
+      }
+    },
+    "1:10": {
+      "ignoreDisabled:1": 0,
+      "index:3": 1,
+      "rewardID:8": "bq_standard:item",
+      "rewards:9": {
+        "0:10": {
+          "Count:3": 15,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "dreamcraft:CoinTechnician"
+        }
+      }
+    },
+    "2:10": {
+      "choices:9": {
+        "0:10": {
+          "Count:3": 16,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "minecraft:coal_block"
+        },
+        "1:10": {
+          "Count:3": 8,
+          "Damage:2": 10,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.blockcasings"
+        },
+        "2:10": {
+          "Count:3": 8,
+          "Damage:2": 11305,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.metaitem.01"
+        }
+      },
+      "ignoreDisabled:1": 0,
+      "index:3": 2,
+      "rewardID:8": "bq_standard:choice"
+    }
+  },
   "tasks:9": {
     "0:10": {
       "autoConsume:1": 0,
@@ -68,65 +132,6 @@
         }
       },
       "taskID:8": "bq_standard:retrieval"
-    },
-    "1:10": {
-      "autoConsume:1": 0,
-      "consume:1": 0,
-      "groupDetect:1": 0,
-      "ignoreNBT:1": 1,
-      "index:3": 2,
-      "partialMatch:1": 1,
-      "requiredItems:9": {
-        "0:10": {
-          "Count:3": 1,
-          "Damage:2": 21014,
-          "OreDict:8": "",
-          "id:8": "gregtech:gt.blockmachines"
-        },
-        "1:10": {
-          "Count:3": 66,
-          "Damage:2": 300,
-          "OreDict:8": "",
-          "id:8": "gregtech:gt.blockframes"
-        },
-        "2:10": {
-          "Count:3": 70,
-          "Damage:2": 1,
-          "OreDict:8": "",
-          "id:8": "sciencenotleisure:meta_casing_02"
-        },
-        "3:10": {
-          "Count:3": 32,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "miscutils:gtplusplus.blockspecialcasings.2"
-        },
-        "4:10": {
-          "Count:3": 24,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "minecraft:stonebrick"
-        },
-        "5:10": {
-          "Count:3": 24,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "sciencenotleisure:meta_block_column"
-        },
-        "6:10": {
-          "Count:3": 127,
-          "Damage:2": 10,
-          "OreDict:8": "",
-          "id:8": "gregtech:gt.blockcasings"
-        },
-        "7:10": {
-          "Count:3": 12,
-          "Damage:2": 13,
-          "OreDict:8": "",
-          "id:8": "gregtech:gt.blockcasings3"
-        }
-      },
-      "taskID:8": "bq_standard:optional_retrieval"
     }
   }
 }

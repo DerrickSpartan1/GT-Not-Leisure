@@ -178,7 +178,7 @@ public class SteamRockBreaker extends SteamMultiMachineBase<SteamRockBreaker> im
 
     @Override
     public int getMaxParallelRecipes() {
-        return 8;
+        return 4;
     }
 
     @Override
@@ -188,12 +188,12 @@ public class SteamRockBreaker extends SteamMultiMachineBase<SteamRockBreaker> im
 
     @Override
     public double getEUtDiscount() {
-        return 1.25 * tierMachine * (1 << (2 * Math.min(4, recipeOcCount)));
+        return 1.25 * tierMachine * (1 << (2 * activeOcCount));
     }
 
     @Override
     public double getDurationModifier() {
-        return 1.6 / tierMachine / (1 << Math.min(4, recipeOcCount));
+        return 1.6 / tierMachine / (1 << activeOcCount);
     }
 
     @Override

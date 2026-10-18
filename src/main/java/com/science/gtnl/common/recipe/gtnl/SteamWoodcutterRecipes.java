@@ -5,6 +5,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 import com.science.gtnl.api.IRecipePool;
+import com.science.gtnl.common.machine.multiblock.steam.SteamCarpenter;
 import com.science.gtnl.common.material.GTNLRecipeMaps;
 import com.science.gtnl.utils.recipes.RecipeBuilder;
 
@@ -20,15 +21,17 @@ public class SteamWoodcutterRecipes implements IRecipePool {
 
         RecipeBuilder.builder()
             .itemInputs(new ItemStack(Blocks.cactus, 0))
-            .itemOutputs(new ItemStack(Blocks.cactus, 48))
-            .duration(40)
+            .itemOutputs(new ItemStack(Blocks.cactus, 8))
+            .special(SteamCarpenter.getDisplaySawBlade())
+            .duration(200)
             .eut(TierEU.RECIPE_LV)
             .addTo(SWR);
 
         RecipeBuilder.builder()
             .itemInputs(new ItemStack(Items.reeds, 0))
-            .itemOutputs(new ItemStack(Items.reeds, 48))
-            .duration(40)
+            .itemOutputs(new ItemStack(Items.reeds, 8))
+            .special(SteamCarpenter.getDisplaySawBlade())
+            .duration(200)
             .eut(TierEU.RECIPE_LV)
             .addTo(SWR);
     }

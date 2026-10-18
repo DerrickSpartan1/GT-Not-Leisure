@@ -166,11 +166,11 @@ public class SteamCracking extends SteamMultiMachineBase<SteamCracking> implemen
     @Override
     public int getMaxParallelRecipes() {
         if (tierMachine == 1) {
-            return 8;
+            return 4;
         } else if (tierMachine == 2) {
-            return 16;
+            return 8;
         }
-        return 8;
+        return 4;
     }
 
     @Override

@@ -185,11 +185,11 @@ public class LargeSteamOreWasher extends SteamMultiMachineBase<LargeSteamOreWash
     @Override
     public int getMaxParallelRecipes() {
         if (tierMachine == 1) {
-            return 32;
+            return 8;
         } else if (tierMachine == 2) {
-            return 64;
+            return 16;
         }
-        return 32;
+        return 8;
     }
 
     @Override
@@ -199,7 +199,7 @@ public class LargeSteamOreWasher extends SteamMultiMachineBase<LargeSteamOreWash
 
     @Override
     public double getDurationModifier() {
-        return super.getDurationModifier() / 20.0 / tierMachine;
+        return super.getDurationModifier() / 0.75 / tierMachine;
     }
 
     @Override

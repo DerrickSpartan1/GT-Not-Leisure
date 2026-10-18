@@ -173,17 +173,17 @@ public class MegaSteamCompressor extends SteamMultiMachineBase<MegaSteamCompress
 
     @Override
     public double getEUtDiscount() {
-        return 1 << (2 * Math.min(4, recipeOcCount));
+        return 1 << (2 * activeOcCount);
     }
 
     @Override
     public double getDurationModifier() {
-        return 1.0 / (1 << Math.min(4, recipeOcCount));
+        return 1.0 / (1 << activeOcCount);
     }
 
     @Override
     public int getMaxParallelRecipes() {
-        return 256;
+        return 64;
     }
 
     @Override
@@ -209,7 +209,7 @@ public class MegaSteamCompressor extends SteamMultiMachineBase<MegaSteamCompress
 
     @Override
     public int getTierRecipes() {
-        return 4;
+        return 2;
     }
 
     @Override

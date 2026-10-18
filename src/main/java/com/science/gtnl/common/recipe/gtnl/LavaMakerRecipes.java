@@ -21,7 +21,7 @@ public class LavaMakerRecipes implements IRecipePool {
         RecipeBuilder.builder()
             .itemInputs(new ItemStack(Blocks.stone, 1))
             .fluidOutputs(Materials.Lava.getFluid(1000))
-            .duration(1 * SECONDS)
+            .duration(10 * SECONDS)
             .eut(16)
             .addTo(LMR);
     }

@@ -58,6 +58,9 @@ public class MegaSolarBoiler extends SteamMultiMachineBase<MegaSolarBoiler> impl
     private static final int HORIZONTAL_OFF_SET = 10;
     private static final int VERTICAL_OFF_SET = 4;
     private static final int DEPTH_OFF_SET = 1;
+    // 24,000 L/s, what one Huge Stronze Fluid Pipe can carry.
+    public static final int STEAM_PER_TICK = 1200;
+    public static final int WATER_PER_TICK = 8;
 
     public String state;
 
@@ -165,9 +168,9 @@ public class MegaSolarBoiler extends SteamMultiMachineBase<MegaSolarBoiler> impl
 
         if (aBaseMetaTileEntity.isAllowedToWork()) {
             if (aBaseMetaTileEntity.getWorld()
-                .isDaytime() && depleteInputReal(Materials.Water.getFluid(30), true)) {
-                addOutput(Materials.Steam.getGas(4800));
-                depleteInputReal(Materials.Water.getFluid(30));
+                .isDaytime() && depleteInputReal(Materials.Water.getFluid(WATER_PER_TICK), true)) {
+                addOutput(Materials.Steam.getGas(STEAM_PER_TICK));
+                depleteInputReal(Materials.Water.getFluid(WATER_PER_TICK));
                 state = "Boiling! :D";
             } else {
                 state = "Idle :(";

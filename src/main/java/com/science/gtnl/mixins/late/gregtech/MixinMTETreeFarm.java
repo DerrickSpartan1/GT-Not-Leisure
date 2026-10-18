@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import com.science.gtnl.common.machine.multiblock.steam.SteamCarpenter;
 import com.science.gtnl.common.material.GTNLRecipeMaps;
 import com.science.gtnl.utils.recipes.RecipeBuilder;
 
@@ -36,25 +37,25 @@ public class MixinMTETreeFarm {
         List<Integer> chances = new ArrayList<>();
 
         ItemStack newLogOut = log.copy();
-        newLogOut.stackSize = 48;
+        newLogOut.stackSize = 8;
         outputs.add(newLogOut);
         chances.add(10000);
 
         if (saplingOut != null) {
             ItemStack newSaplingOut = saplingOut.copy();
-            newSaplingOut.stackSize = 2;
+            newSaplingOut.stackSize = 1;
             outputs.add(newSaplingOut);
             chances.add(1000);
         }
         if (leaves != null) {
             ItemStack newLeavesOut = leaves.copy();
-            newLeavesOut.stackSize = 6;
+            newLeavesOut.stackSize = 1;
             outputs.add(newLeavesOut);
             chances.add(1500);
         }
         if (fruit != null) {
             ItemStack newFruitOut = fruit.copy();
-            newFruitOut.stackSize = 4;
+            newFruitOut.stackSize = 1;
             outputs.add(newFruitOut);
             chances.add(3000);
         }
@@ -66,7 +67,8 @@ public class MixinMTETreeFarm {
                 chances.stream()
                     .mapToInt(i -> i)
                     .toArray())
-            .duration(40)
+            .special(SteamCarpenter.getDisplaySawBlade())
+            .duration(200)
             .eut(TierEU.RECIPE_LV)
             .addTo(GTNLRecipeMaps.WoodcutterRecipes);
     }

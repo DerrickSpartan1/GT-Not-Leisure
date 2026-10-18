@@ -40,18 +40,90 @@
   },
   "questIDHigh:4": -3653953153577566193,
   "questIDLow:4": -8410311644233944187,
-  "rewards:9": {},
-  "tasks:9": {
+  "rewards:9": {
     "0:10": {
+      "ignoreDisabled:1": 0,
       "index:3": 0,
-      "taskID:8": "bq_standard:checkbox"
+      "rewardID:8": "bq_standard:item",
+      "rewards:9": {
+        "0:10": {
+          "Count:3": 4,
+          "Damage:2": 6,
+          "OreDict:8": "",
+          "id:8": "sciencenotleisure:meta_item"
+        },
+        "1:10": {
+          "Count:3": 16,
+          "Damage:2": 11402,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.metaitem.01"
+        },
+        "2:10": {
+          "Count:3": 16,
+          "Damage:2": 17300,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.metaitem.01"
+        },
+        "3:10": {
+          "Count:3": 16,
+          "Damage:2": 11305,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.metaitem.01"
+        },
+        "4:10": {
+          "Count:3": 2,
+          "Damage:2": 4,
+          "OreDict:8": "",
+          "id:8": "enhancedlootbags:lootbag"
+        }
+      }
     },
     "1:10": {
+      "ignoreDisabled:1": 0,
+      "index:3": 1,
+      "rewardID:8": "bq_standard:item",
+      "rewards:9": {
+        "0:10": {
+          "Count:3": 30,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "dreamcraft:CoinTechnician"
+        }
+      }
+    },
+    "2:10": {
+      "choices:9": {
+        "0:10": {
+          "Count:3": 2,
+          "Damage:2": 0,
+          "OreDict:8": "",
+          "id:8": "IC2:itemPartCircuitAdv"
+        },
+        "1:10": {
+          "Count:3": 4,
+          "Damage:2": 6,
+          "OreDict:8": "",
+          "id:8": "sciencenotleisure:meta_item"
+        },
+        "2:10": {
+          "Count:3": 4,
+          "Damage:2": 31305,
+          "OreDict:8": "",
+          "id:8": "gregtech:gt.metaitem.02"
+        }
+      },
+      "ignoreDisabled:1": 0,
+      "index:3": 2,
+      "rewardID:8": "bq_standard:choice"
+    }
+  },
+  "tasks:9": {
+    "0:10": {
       "autoConsume:1": 0,
       "consume:1": 0,
       "groupDetect:1": 0,
       "ignoreNBT:1": 1,
-      "index:3": 1,
+      "index:3": 0,
       "partialMatch:1": 1,
       "requiredItems:9": {
         "0:10": {
@@ -103,7 +175,7 @@
           "id:8": "sciencenotleisure:meta_item"
         }
       },
-      "taskID:8": "bq_standard:optional_retrieval"
+      "taskID:8": "bq_standard:retrieval"
     }
   }
 }
