@@ -866,10 +866,10 @@ gtnl.machine.bricked_blast_furnace.tooltip.1=Unlike the original Brick Blast Fur
 gtnl.machine.bricked_blast_furnace.tooltip.2=Benefits from furnace body improvements.
 gtnl.machine.bricked_blast_furnace.tooltip.3=Runs §l§c4§r recipes at once, each §l§c2x§r as fast as a Bricked Blast Furnace.
 gtnl.machine.bricked_blast_furnace.tooltip.4=Produces half the pollution of four Bricked Blast Furnaces.
-gtnl.machine.bricked_blast_furnace.structure.0=76x Firebricks
-gtnl.machine.bricked_blast_furnace.structure.1=32x Stone Bricks
+gtnl.machine.bricked_blast_furnace.structure.0=68x Firebricks
+gtnl.machine.bricked_blast_furnace.structure.1=40x Bronze Plated Bricks
 gtnl.machine.bricked_blast_furnace.structure.2=9x Bronze Firebox Casings
-gtnl.machine.bricked_blast_furnace.structure.3=12x Bronze Plated Bricks
+gtnl.machine.bricked_blast_furnace.structure.3=12x Bronze Plated Bricks (bottom layer)
 gtnl.machine.bricked_blast_furnace.structure.4=Buses replace Bronze Plated Bricks on the bottom layer (at least 8 must remain)
 
 gtnl.machine.rare_earth_centrifugal.name=Rare Earth Centrifuge

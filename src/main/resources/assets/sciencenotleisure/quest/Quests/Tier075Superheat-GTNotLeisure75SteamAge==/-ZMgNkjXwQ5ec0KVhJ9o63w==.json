@@ -124,7 +124,7 @@
       "partialMatch:1": 1,
       "requiredItems:9": {
         "0:10": {
-          "Count:3": 12,
+          "Count:3": 52,
           "Damage:2": 10,
           "OreDict:8": "",
           "id:8": "gregtech:gt.blockcasings"
@@ -136,24 +136,18 @@
           "id:8": "gregtech:gt.blockcasings3"
         },
         "2:10": {
-          "Count:3": 32,
-          "Damage:2": 0,
-          "OreDict:8": "",
-          "id:8": "minecraft:stonebrick"
-        },
-        "3:10": {
-          "Count:3": 76,
+          "Count:3": 68,
           "Damage:2": 15,
           "OreDict:8": "",
           "id:8": "gregtech:gt.blockcasings4"
         },
-        "4:10": {
+        "3:10": {
           "Count:3": 1,
           "Damage:2": 31046,
           "OreDict:8": "",
           "id:8": "gregtech:gt.blockmachines"
         },
-        "5:10": {
+        "4:10": {
           "Count:3": 1,
           "Damage:2": 31047,
           "OreDict:8": "",

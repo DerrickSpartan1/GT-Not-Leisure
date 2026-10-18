@@ -866,10 +866,10 @@ gtnl.machine.bricked_blast_furnace.tooltip.1=不同于原来的砖高炉，现�
 gtnl.machine.bricked_blast_furnace.tooltip.2=获益于炉身的改进，
 gtnl.machine.bricked_blast_furnace.tooltip.3=同时运行§l§c4§r个配方，每个配方的速度是砖高炉的§l§c2§r倍
 gtnl.machine.bricked_blast_furnace.tooltip.4=污染仅为四座砖高炉的一半
-gtnl.machine.bricked_blast_furnace.structure.0=76x 耐火砖
-gtnl.machine.bricked_blast_furnace.structure.1=32x 石砖
+gtnl.machine.bricked_blast_furnace.structure.0=68x 耐火砖
+gtnl.machine.bricked_blast_furnace.structure.1=40x 镀铜砖块
 gtnl.machine.bricked_blast_furnace.structure.2=9x 青铜燃烧室
-gtnl.machine.bricked_blast_furnace.structure.3=12x 镀铜砖块
+gtnl.machine.bricked_blast_furnace.structure.3=12x 镀铜砖块（底层）
 gtnl.machine.bricked_blast_furnace.structure.4=总线替换底层的镀铜砖块（至少保留8个）
 
 gtnl.machine.rare_earth_centrifugal.name=稀土离心机

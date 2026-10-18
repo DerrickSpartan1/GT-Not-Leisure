@@ -3,8 +3,6 @@ package com.science.gtnl.common.machine.multiblock;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -18,7 +16,6 @@ import com.science.gtnl.common.machine.multiMachineBase.SteamMultiMachineBase;
 
 import gregtech.api.casing.Casings;
 import gregtech.api.enums.HatchElement;
-import gregtech.api.enums.Mods;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -40,9 +37,9 @@ public class BrickedBlastFurnace extends SteamMultiMachineBase<BrickedBlastFurna
     // Layers from top to bottom, rows from front to back.
     private static final String[][] shape = new String[][] { { "     ", " BBB ", " B-B ", " BBB ", "     " },
         { "     ", " BBB ", " B-B ", " BBB ", "     " }, { "     ", " BBB ", " B-B ", " BBB ", "     " },
-        { "EEEEE", "EBBBE", "EB-BE", "EBBBE", "EEEEE" }, { "EBBBE", "B---B", "B---B", "B---B", "EBBBE" },
-        { "EBBBE", "B---B", "B---B", "B---B", "EBBBE" }, { "EB~BE", "BBBBB", "BBBBB", "BBBBB", "EBBBE" },
-        { "EDDDE", "DAAAD", "DAAAD", "DAAAD", "EDDDE" } };
+        { "CCCCC", "CCCCC", "CC-CC", "CCCCC", "CCCCC" }, { "CBBBC", "B---B", "B---B", "B---B", "CBBBC" },
+        { "CBBBC", "B---B", "B---B", "B---B", "CBBBC" }, { "CB~BC", "BBBBB", "BBBBB", "BBBBB", "CBBBC" },
+        { "CDDDC", "DAAAD", "DAAAD", "DAAAD", "CDDDC" } };
     private static final int HORIZONTAL_OFF_SET = 2;
     private static final int VERTICAL_OFF_SET = 6;
     private static final int CHIMNEY_DEPTH = 2;
@@ -75,6 +72,7 @@ public class BrickedBlastFurnace extends SteamMultiMachineBase<BrickedBlastFurna
             .addShape(STRUCTURE_PIECE_MAIN, StructureUtility.transpose(shape))
             .addElement('A', Casings.BronzeFireboxCasing.asElement())
             .addElement('B', Casings.Firebricks.asElement())
+            .addElement('C', Casings.BronzePlatedBricks.asElement())
             .addElement(
                 'D',
                 GTStructureUtility.buildHatchAdder(BrickedBlastFurnace.class)
@@ -88,12 +86,6 @@ public class BrickedBlastFurnace extends SteamMultiMachineBase<BrickedBlastFurna
                         HatchElement.Maintenance)
                     .buildAndChain(
                         StructureUtility.onElementPass(x -> ++x.mCountCasing, Casings.BronzePlatedBricks.asElement())))
-            .addElement(
-                'E',
-                StructureUtility.ofChain(
-                    StructureUtility.ofBlockAnyMeta(Blocks.stonebrick),
-                    StructureUtility.ofBlockAnyMeta(
-                        Mods.Chisel.isModLoaded() ? Block.getBlockFromName("chisel:stonebricksmooth") : Blocks.stone)))
             .build();
     }
 
